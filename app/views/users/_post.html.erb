@@ -1,0 +1,75 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <h3 class="panel-title">Post</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-2">
+        <img src=https://unsplash.it/90/75" alt="No img">
+      </div>
+      <div class="col-xs-6">
+        <%= link_to posted.user.profile.fullname, user_path( posted.user) %><br/>
+        <span style="color: grey;"><%= posted.created_at %></span>
+      </div>
+    </div>
+    <p><br/><%= posted.post_text %></p>
+  </div>
+
+
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-xs-3">
+        <button type="button" class="btn btn-default btn-md text-left" data-toggle="modal" data-target="#myModal<%= index %>">New Comment</button>
+      </div>
+      <div class="col-xs-3">
+      <%= render partial: 'modalcomment', locals: {:index => index, :posted => posted} %>
+        <% if post_liked?(posted) %>
+          <%= link_to "Unlike", post_like_path(posted, get_like_post(posted)), method: :delete %>
+        <% else %>
+          <%= link_to "Like", post_likes_path(posted, :user_id => current_user.id), method: :post %>
+        <% end %>
+      </div>
+      <% if current_user.id == params[:id].to_i %>
+      <%= link_to "Delete Post", post_path(posted), method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: "pull-right" %>
+      <% end %>
+    </div>
+
+  <% posted.comments.each do |comment| %>
+    <% if comment.id %>
+          <hr/>
+      <div class="row">
+        <div class="col-xs-2">
+          <img src=https://unsplash.it/90/70" alt="No img">
+        </div>
+        <div class="col-xs-6">
+          <%= link_to comment.user.profile.fullname, user_timeline_path(comment.user) %><br/>
+          <span style="color: grey;"><%= comment.created_at %></span>
+        </div>
+      </div>
+        <p></br><%= comment.comment_text %></p>
+        <div class="row">
+
+        <div class="col-xs-3">
+          <% if comment_liked?(posted, comment) %>
+            <%= link_to "Unlike", post_comment_like_path(posted, comment, get_like_comment(posted, comment)), method: :delete %>
+          <% else %>
+          <%= link_to "Like", post_comment_likes_path(posted, comment, :user_id => current_user.id), method: :post %>
+          <% end %>
+        </div>
+        <% if comment.user == current_user %>
+          <div class="col-xs-3">
+            <%= link_to "Delete Comment", post_comment_path(posted, comment), data: {confirm: "Are you sure you want to delete your comment?"}, method: :delete, class: "text-right" %>
+          </div>
+        <% end %>
+      </div>
+
+    <% end %>
+  <% end %>
+  </div>
+
+
+
+  </div>
+<br/>

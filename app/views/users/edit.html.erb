@@ -1,0 +1,99 @@
+
+<div id="user_nav">
+
+  <div id = "about-heading">
+    <h2>About<h2>
+  </div>
+
+  <%= simple_form_for @current_user, html: {class: "form-signup"} do |user_field| %>
+    <%= user_field.simple_fields_for :profile, @current_user.profile do |profile_field| %>
+  <div id = "main-content">
+    <div class = "col-sm-7">
+      <h3> Basic Information </h3>
+      <br />
+
+      <div class = "row">
+        <div class = "col-sm-4">
+          <p><b>Birthday:</b></p>
+          <br />
+          <p><b>College:</b></p>
+          <br />
+          <p><b>Hometown:</b></p>
+          <br />
+          <p><b>Currently Lives:</b></p>
+          <br />
+        </div>
+        <div class = "col-sm-6">
+            <div class="col-xs-4">
+              <%= profile_field.input :birth_month_id, label: false, placeholder: "Month", collection: BirthMonth.all, label_method: :month, value_method: :id %>
+            </div>
+            <div class="col-xs-4">
+              <%= profile_field.input :birth_day, label: false, placeholder: "Day", collection: (1..31).to_a %>
+            </div>
+            <div class="col-xs-4">
+              <%= profile_field.input :year_id, label: false, placeholder: "Year", collection: Year.all.reverse, label_method: :year, value_method: :id %>
+            </div>
+          <br />
+          <%= profile_field.input :college_id, label: false, collection: College.all, label_method: :name, value_method: :id %>
+            <%= profile_field.simple_fields_for :hometown, hometown? do |hometown_field| %>
+              <div class="col-xs-6">
+                <%= hometown_field.input :city, label: false %>
+              </div>
+              <div class="col-xs-6">
+                <%= hometown_field.input :state_id, label: false, collection: State.all, label_method: :name, value_method: :id %>
+              </div>
+            <% end %>
+            <%= profile_field.simple_fields_for :currently_live, currently_live? do |current_field| %>
+            <div class="col-xs-6">
+              <%= current_field.input :city, label: false %>
+            </div>
+            <div class="col-xs-6">
+              <%= current_field.input :state_id, label: false, collection: State.all, label_method: :name, value_method: :id %>
+            </div>
+            <% end %>
+          <br />
+        </div>
+      </div>
+
+      <div class = "row">
+        <h3>&nbsp; Contact Information</h3>
+        <br />
+        <div class = "col-sm-4">
+          <p><b>Email:</b></p>
+          <br />
+          <p><b>Telephone:</b></p>
+          <br />
+
+        </div>
+        <div class = "col-sm-6">
+          <%= user_field.input :email, label: false, input_html: {class: "form-control"} %>
+          <%= profile_field.input :telephone, label: false, input_html: {class: "form-control"} %>
+          <br />
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class = "col-sm-5">
+      <h3> Words to Live By </h3>
+    </br>
+
+        <%= profile_field.input :words_to_live_by, label: false, input_html: {class: "form-control"} %>
+      <br />
+
+      <h3>About Me</h3>
+      <br />
+
+        <%= profile_field.input :about_me, label: false, input_html: {class: "form-control"} %><br/>
+          <%= user_field.button :submit, "Update Profile", class: "btn btn-primary btn-lg btn-block" %>
+      </div>
+
+
+      <% end %>
+      <% end %>
+      <div class = "col-sm-1">
+      </div>
+    </div>
+
+  </div>

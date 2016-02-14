@@ -1,0 +1,61 @@
+<div class  = "container" id="session_nav">
+  <div class = "row">
+
+
+    <div class = "col-sm-7">
+      <h2><b>Connect with all your friends!</b></h2>
+      <ul>
+        <li><b>See photos and updates </b>in your news feed</li>
+        <li><b>Post your status for the world to see </b>from your profile</li>
+        <li><b>Get in touch with your friends </b>by "friending" them</li>
+        <li><b>Like things </b>because you're a positive person!</li>
+      </ul>
+    </div>
+    <div class = "col-sm-5">
+      <h2><b>Sign Up</b></h2>
+      <div class = "row">
+        <div class = "col-sm-6">
+          <%= simple_form_for @user, html: {class: "form-signup"} do |user_field| %>
+          <%= user_field.simple_fields_for :profile, @user.build_profile do |profile_field| %>
+          <label for = "inputName" class = "sr-only" >First Name</label>
+          <%= profile_field.input :first_name, label: false, placeholder: "First Name", input_html: {class: "form-control"} %>
+        </div>
+
+
+        <div class = "col-sm-6">
+          <label for = "inputName" class = "sr-only">Last Name</label>
+          <%= profile_field.input :last_name, label: false, placeholder: "Last Name", input_html: {class: "form-control"} %>
+        </div>
+      </div>
+
+
+
+      <label for = "inputEmail" class = "sr-only">Email Address</label>
+      <%= user_field.input :email, label: false, placeholder: "Email Address", input_html: {class: "form-control"} %>
+
+      <label for = "inputPassword" class = "sr-only">Password</label>
+      <%= user_field.input :password, label: false, placeholder: "Input Password", input_html: {class: "form-control"} %>
+
+      <label for = "inputPassConfirm" class = "sr-only" >Confirm Password</label>
+      <%= user_field.input :password_confirm, label: false, placeholder: "Confirm Your Password", input_html: {class: "form-control"} %>
+
+      <h3><b>Birthday</b></h3>
+
+      <div class = "row">
+        <div class = "col-sm-4">
+          <%= profile_field.input :birth_month_id, label: "Month", placeholder: "Month", collection: BirthMonth.all, label_method: :month, value_method: :id %>
+        </div>
+        <div class = "col-sm-4">
+          <%= profile_field.input :birth_day, label: "Day", placeholder: "Day", collection: (1..31).to_a %>
+        </div>
+        <div class = "col-sm-4">
+          <%= profile_field.input :year_id, label: "Year", placeholder: "Year", collection: Year.all.reverse, label_method: :year, value_method: :id %>
+        </div>
+      </div>
+
+          <%= profile_field.input :sex_id, as: :radio_buttons, inline_label: "Sex", placeholder: "Sex", collection: Sex.all, label_method: :name, value_method: :id %>
+
+          <%= user_field.button :submit, "Sign Up Now", class: "btn btn-primary btn-lg btn-block" %>
+      </div>
+  <% end %>
+  <% end %>

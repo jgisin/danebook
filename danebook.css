@@ -1,0 +1,57 @@
+.nav-top {
+
+  background-color: #2f63df;
+  border-color: #a9c1f9;
+  width: 100%;
+  height: 100px;
+}
+
+.navbar-brand{
+	font-size: 50px;
+	font-family: arial;
+	color: #FFF;
+	margin-top: 20px;
+}
+
+.navbar-right {
+
+		margin-top: 15px;
+}
+
+.form-control {
+
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+h1 {
+	margin-bottom: 5%;
+	font-size: 50px;
+	font-family: arial;
+}
+
+h2 {
+	font-family: helvetica;
+	font-size: 30px;
+	margin-top: 15%;
+	margin-bottom: 40px;
+
+}
+
+h3 {
+	font-family: arial;
+
+}
+
+.dropdown-menu li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 12px;
+}
+
+li {
+	font-family: arial;
+	font-size: 18px;
+	color: #707070;
+	margin-top: 20px;
+}

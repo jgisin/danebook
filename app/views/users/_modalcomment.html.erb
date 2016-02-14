@@ -1,0 +1,24 @@
+<!-- Modal -->
+<div id="myModal<%= index %>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">New Comment</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for posted.comments.build, html: {class: "form-signup"}, url: post_comments_path(posted.id) do |comm_field| %>
+          <%= comm_field.input :comment_text, input_html: {class: "form-control"} %>
+          <%= comm_field.hidden_field :user_id, value: @current_user.id %>
+      </div>
+      <div class="modal-footer">
+        <%= comm_field.button :submit, "Save Comment", class: "btn btn-primary btn-md" %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

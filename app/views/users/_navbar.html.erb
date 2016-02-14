@@ -1,0 +1,74 @@
+<div id="user_nav">
+  <nav class = "navbar nav-top container">
+
+    <div class = "navbar-header">
+
+      <%= image_tag "danish_flag.gif", class: 'navbar-brand logo' %>
+      <a class = "navbar-brand" href="/">Danebook</a>
+
+
+      <form class = "navbar-form">
+        <div class = "form-group" id = "top-contain">
+          <input type = "text" placeholder = "Search for Users" class = "form-control" id = "top-search">
+        </div>
+
+        <%= link_to "Sign Out", session_path, method: :delete, class: "navbar-right" %>
+        <a href = "<%= edit_user_path(current_user) %>" class = "navbar-right"><%= @current_user.profile.first_name %></a>
+      </form>
+
+    </div>
+  </nav>
+
+
+  <div class = "container">
+
+
+    <div class = "row">
+      <div class = "col-sm-8" id = "top-content">
+        <!-- Main Content -->
+          <img src="https://placeimg.com/800/400/nature" alt="No img" id="jumbotron-img">
+      </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <div class = "row">
+      <div class = "col-sm-2">
+        <%= image_tag "harry_potter_small.jpg", id: "user-img", alt: "No Pic Loaded" %>
+      </div>
+
+      <div class = "col-sm-8" id = "content-nav">
+        <br /><br /><br />
+        <h1 style="color: #FFFFFF;">
+          <%= user_page.profile.fullname %>
+          <% if friend? %>
+            <%= link_to "Add Friend", friendings_path(:id => params[:id]), method: :post, class: 'btn btn-lg btn-primary' %>
+          <% end %>
+          <% if unfriend? %>
+            <%= link_to "Remove Friend", friending_path(:id => params[:id]), method: :delete, class: 'btn btn-lg btn-primary' %>
+          <% end %>
+        </h1>
+        <br /><br />
+
+        <ul class = "nav nav-justified" id = "content-menu">
+          <li><a href = "<%= user_timeline_path(@current_user) %>">Timeline</a></li>
+          <li><a href = "<%= user_path(@current_user) %>">About</a></li>
+          <li><a href = "#">Photos</a></li>
+          <li><a href = "<%= user_friends_path(@current_user) %>">Friends</a></li>
+        </ul>
+      </div>
+      <div class = "col-sm-2">
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <% if @current_user.id == params[:id].to_i %>
+        <a href = "<%= edit_user_path(@current_user) %>" id = "edit-profile">Edit Profile</a>
+        <% end %>
+
+      </div>
+    </div>
+
+    <br />
+
+
+    <div class = "row">
+      <div class = "col-sm-1">
+      </div>
+      <div class = "col-sm-10" id = "main-header">

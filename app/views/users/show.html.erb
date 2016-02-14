@@ -1,0 +1,74 @@
+
+<div id="user_nav">
+  <div id = "about-heading">
+    <h2 class=>About<h2>
+  </div>
+
+  <div id = "main-content">
+    <div class = "col-sm-6">
+      <h3> Basic Information </h3>
+      <br />
+
+      <div class = "row">
+        <div class = "col-sm-4">
+          <p><b>Birthday:</b></p>
+          <br />
+          <p><b>College:</b></p>
+          <br />
+          <p><b>Hometown:</b></p>
+          <br />
+          <p><b>Currently Lives:</b></p>
+          <br />
+        </div>
+        <div class = "col-sm-6">
+          <p><%= @user.profile.birthday %></p>
+          <br />
+          <p><%= @user.profile.college ? @user.profile.college.name : "N/A" %></p>
+          <br />
+          <p><%= @user.profile.home %></p>
+          <br />
+          <p><%= @user.profile.live %></p>
+          <br />
+        </div>
+      </div>
+
+      <div class = "row">
+        <h3>&nbsp; Contact Information</h3>
+        <br />
+        <div class = "col-sm-4">
+          <p><b>Email:</b></p>
+          <br />
+          <p><b>Telephone:</b></p>
+          <br />
+
+        </div>
+        <div class = "col-sm-6">
+          <p><%= @user.email %></p>
+          <br />
+          <p><%= @user.profile.telephone %></p>
+          <br />
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class = "col-sm-6">
+      <h3> Words to Live By </h3>
+    </br>
+
+    <p><%= @user.profile.words_to_live_by %></p>
+      <br />
+
+      <h3>About Me</h3>
+      <br />
+
+      <p><%= @user.profile.about_me %></p>
+      </div>
+
+
+      <div class = "col-sm-1">
+      </div>
+    </div>
+
+  </div>

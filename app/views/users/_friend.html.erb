@@ -1,0 +1,16 @@
+<div class = "col-sm-6">
+  <div class = "row" id = "friend">
+    <div class = "col-sm-3">
+      <img src = "assets/user_silhouette_generic.gif" id = "friend-img">
+    </div>
+    <div class = "col-sm-5">
+      <br />
+      <%= link_to friend.profile.fullname, user_timeline_path(friend), id: "friend-name" %>
+      <p id = "friend-amount"><%= friend.friended_users.count %> friends</p>
+    </div>
+    <div class = "col-sm-4">
+      <br />
+      <%= link_to "Remove Friend", friending_path(friend), method: :delete, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
