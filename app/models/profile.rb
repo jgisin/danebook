@@ -19,7 +19,7 @@ accepts_nested_attributes_for :currently_live,
   end
 
   def home
-    if self.hometown.city.nil? == false && self.hometown.state.nil? == false
+    if self.hometown.nil? == false 
       "#{self.hometown.city}, #{self.hometown.state.name}"
     else
       "N/A"
