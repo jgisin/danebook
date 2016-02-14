@@ -52,9 +52,8 @@
           <%= profile_field.input :year_id, label: "Year", placeholder: "Year", collection: Year.all.reverse, label_method: :year, value_method: :id %>
         </div>
       </div>
-
-          <%= profile_field.input :sex_id, as: :radio_buttons, inline_label: "Sex", placeholder: "Sex", collection: Sex.all, label_method: :name, value_method: :id %>
-
+      <h3><b>Gender</b></h3>
+          <%= profile_field.input :sex_id, as: :radio_buttons, label: false, collection: Sex.all, label_method: :name, value_method: :id , item_label_class: "radio-inline", item_wrapper_tag: false %>
           <%= user_field.button :submit, "Sign Up Now", class: "btn btn-primary btn-lg btn-block" %>
       </div>
   <% end %>
