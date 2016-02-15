@@ -32,10 +32,13 @@
         </div>
         <div class="panel-body">
           <% get_user.friended_users.each do |friend| %>
+            <% if get_user.users_friended_by.include?(friend) %>
             <div class="col-xs-4">
               <img src="http://lorempixel.com/80/80/people/<%= rand(1..10) %>"><br/>
               <%= link_to friend.profile.fullname, user_timeline_path(friend) %>
+
             </div>
+                        <% end %>
           <% end %>
         </div>
       </div>

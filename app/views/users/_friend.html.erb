@@ -10,7 +10,11 @@
     </div>
     <div class = "col-sm-4">
       <br />
-      <%= link_to "Remove Friend", friending_path(friend), method: :delete, class: 'btn btn-primary' %>
+      <% if @current_user.users_friended_by.include?(friend) %>
+        <%= link_to "Unfriend Me", friending_path(friend), method: :delete, class: 'btn btn-primary' %>
+      <% else %>
+        <%= link_to "Delete Invite", friending_path(friend), method: :delete, class: 'btn btn-danger' %>
+      <% end %>
     </div>
   </div>
 </div>

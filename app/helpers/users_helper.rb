@@ -45,7 +45,8 @@ module UsersHelper
   end
 
   def unfriend?
-    current_user.friended_users.include?(User.find(params[:id].to_i))  
+    current_user.friended_users.include?(User.find(params[:id].to_i))
   end
+
 
 end

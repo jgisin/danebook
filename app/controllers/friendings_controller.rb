@@ -11,10 +11,20 @@ class FriendingsController < ApplicationController
   end
 
   def destroy
-    unfriended_user = User.find(params[:id])
-    current_user.friended_users.delete(unfriended_user)
-    flash[:success] = "Successfully unfriended"
-    redirect_to request.referrer
+    if User.find(params[:id]) == current_user
+      current_user.users_friended_by.delete(User.find(params[:invite]))
+      flash[:success] = "Denied Friend Request"
+      redirect_to request.referrer
+    else
+      unfriended_user = User.find(params[:id])
+      current_user.friended_users.delete(unfriended_user)
+      flash[:success] = "Successfully unfriended"
+      redirect_to request.referrer
+    end
+  end
+
+  def deny
+
   end
 
 

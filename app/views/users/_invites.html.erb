@@ -1,0 +1,38 @@
+<div class = "row">
+  <div class = "col-sm-1">
+  </div>
+  <div class = "col-sm-10" id = "main-header">
+
+    <div id="invites" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Pending Invites</h4>
+          </div>
+          <div class="modal-body">
+            <% @invites.each do |invite| %>
+              <% unless current_user.friended_users.include?(invite) %>
+              <div class="row">
+                <div class="col-xs-3">
+                  <%= link_to invite.profile.fullname, user_timeline_path(invite) %>
+                </div>
+                <div class="col-xs-2">
+                  <%= link_to "Add Friend", friendings_path(:id => invite.id), method: :post, class: 'btn btn-sm btn-primary' %>
+                </div>
+                <div class="col-xs-2">
+                  <%= link_to "Deny Request", friending_path(:invite => invite), method: :delete, class: 'btn btn-sm btn-warning' %>
+                </div>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
