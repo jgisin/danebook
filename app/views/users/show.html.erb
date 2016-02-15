@@ -9,6 +9,7 @@
       <h3> Basic Information </h3>
       <br />
 
+      <% present @user do |user_presenter| %>
       <div class = "row">
         <div class = "col-sm-4">
           <p><b>Birthday:</b></p>
@@ -21,13 +22,13 @@
           <br />
         </div>
         <div class = "col-sm-6">
-          <p><%= @user.profile.birthday %></p>
+          <p><%= user_presenter.birthday %></p>
           <br />
-          <p><%= @user.profile.college ? @user.profile.college.name : "N/A" %></p>
+          <p><%= user_presenter.user_college %></p>
           <br />
-          <p><%= @user.profile.home %></p>
+          <p><%= user_presenter.home %></p>
           <br />
-          <p><%= @user.profile.live %></p>
+          <p><%= user_presenter.live %></p>
           <br />
         </div>
       </div>
@@ -43,9 +44,9 @@
 
         </div>
         <div class = "col-sm-6">
-          <p><%= @user.email %></p>
+          <p><%= user_presenter.email %></p>
           <br />
-          <p><%= @user.profile.telephone %></p>
+          <p><%= user_presenter.telephone %></p>
           <br />
 
         </div>
@@ -57,18 +58,11 @@
       <h3> Words to Live By </h3>
     </br>
 
-    <p><%= @user.profile.words_to_live_by %></p>
+    <p><%= user_presenter.words_to_live_by %></p>
       <br />
 
       <h3>About Me</h3>
       <br />
 
-      <p><%= @user.profile.about_me %></p>
-      </div>
-
-
-      <div class = "col-sm-1">
-      </div>
-    </div>
-
-  </div>
+      <p><%= user_presenter.about_me %></p>
+  <% end %>

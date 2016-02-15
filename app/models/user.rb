@@ -32,6 +32,42 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :profile,
                                 :reject_if => :all_blank
 
+  def pending_invites
+    self.users_friended_by.map do |invite|
+      unless self.initiated_friendings.include?(invite)
+        invite
+      end
+    end
+  end
+
+  def invite_count
+    count = 0
+    self.pending_invites.each do |invite|
+      if self.friended_users.include?(invite)
+        next
+      else
+        count += 1
+      end
+    end
+    count
+  end
+
+  def hometown?
+    if self.profile.hometown.nil?
+      return self.profile.build_hometown
+    else
+      return self.profile.hometown
+    end
+  end
+
+  def currently_live?
+    if self.profile.currently_live.nil?
+      return self.profile.build_currently_live
+    else
+      return self.profile.currently_live
+    end
+  end
+
   def generate_token
     begin
       self[:auth_token] = SecureRandom.urlsafe_base64

@@ -13,7 +13,7 @@
             <h4 class="modal-title">Pending Invites</h4>
           </div>
           <div class="modal-body">
-            <% @invites.each do |invite| %>
+            <% current_user.pending_invites.each do |invite| %>
               <% unless current_user.friended_users.include?(invite) %>
               <div class="row">
                 <div class="col-xs-3">

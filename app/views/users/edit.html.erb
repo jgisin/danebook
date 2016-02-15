@@ -56,7 +56,7 @@
           </div>
         </div>
 
-            <%= profile_field.simple_fields_for :hometown, hometown? do |hometown_field| %>
+            <%= profile_field.simple_fields_for :hometown, @current_user.hometown? do |hometown_field| %>
               <div class="col-xs-6">
                 <%= hometown_field.input :city, label: false %>
               </div>
@@ -64,7 +64,7 @@
                 <%= hometown_field.input :state_id, label: false, collection: State.all, label_method: :name, value_method: :id %>
               </div>
             <% end %>
-            <%= profile_field.simple_fields_for :currently_live, currently_live? do |current_field| %>
+            <%= profile_field.simple_fields_for :currently_live, @current_user.currently_live? do |current_field| %>
             <div class="col-xs-6">
               <%= current_field.input :city, label: false %>
             </div>

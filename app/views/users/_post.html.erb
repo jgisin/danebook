@@ -1,3 +1,4 @@
+<% present posted do |post_presenter| %>
 <div class="panel panel-default">
 
   <div class="panel-heading">
@@ -10,11 +11,11 @@
         <img src="https://unsplash.it/90/75" alt="No img">
       </div>
       <div class="col-xs-6">
-        <%= link_to posted.user.profile.fullname, user_path( posted.user) %><br/>
-        <span style="color: grey;"><%= posted.created_at %></span>
+        <%= post_presenter.post_user_show_link %><br/>
+        <span style="color: grey;"><%= post_presenter.created_at %></span>
       </div>
     </div>
-    <p><br/><%= posted.post_text %></p>
+    <p><br/><%= post_presenter.post_text %></p>
   </div>
 
 
@@ -25,38 +26,33 @@
       </div>
       <div class="col-xs-3">
       <%= render partial: 'modalcomment', locals: {:index => index, :posted => posted} %>
-        <% if post_liked?(posted) %>
-          <%= link_to "Unlike", post_like_path(posted, get_like_post(posted)), method: :delete %>
-        <% else %>
-          <%= link_to "Like", post_likes_path(posted, :user_id => current_user.id), method: :post %>
-        <% end %>
+        <%= post_presenter.post_like_button %>
       </div>
-      <% if current_user.id == params[:id].to_i %>
+<% end %><!-- End Post Presenter -->
+      <% if current_users_page? %>
       <%= link_to "Delete Post", post_path(posted), method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: "pull-right" %>
       <% end %>
     </div>
 
+
   <% posted.comments.each do |comment| %>
+    <% present comment do |comment_presenter| %>
     <% if comment.id %>
           <hr/>
       <div class="row">
         <div class="col-xs-2">
-          <img src=https://unsplash.it/90/70" alt="No img">
+          <img src="https://unsplash.it/90/70" alt="No img">
         </div>
         <div class="col-xs-6">
-          <%= link_to comment.user.profile.fullname, user_timeline_path(comment.user) %><br/>
-          <span style="color: grey;"><%= comment.created_at %></span>
+          <%= comment_presenter.comment_user_show_link %><br/>
+          <span style="color: grey;"><%= comment_presenter.created_at %></span>
         </div>
       </div>
-        <p></br><%= comment.comment_text %></p>
+        <p></br><%= comment_presenter.comment_text %></p>
         <div class="row">
 
         <div class="col-xs-3">
-          <% if comment_liked?(posted, comment) %>
-            <%= link_to "Unlike", post_comment_like_path(posted, comment, get_like_comment(posted, comment)), method: :delete %>
-          <% else %>
-          <%= link_to "Like", post_comment_likes_path(posted, comment, :user_id => current_user.id), method: :post %>
-          <% end %>
+          <%= comment_presenter.comment_like_button(posted) %>
         </div>
         <% if comment.user == current_user %>
           <div class="col-xs-3">
@@ -69,7 +65,7 @@
   <% end %>
   </div>
 
-
+<% end %>
 
   </div>
 <br/>

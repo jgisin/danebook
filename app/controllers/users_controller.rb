@@ -1,22 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :pending_invites
-  before_action :invite_count
-  before_action :require_login, :except => [:index, :new, :create]
+  before_action :require_login, :except => [:create]
   before_action :require_current_user, :only => [:edit, :update, :destroy]
 
-  def index
-
-  end
 
   def timeline
     @user = User.find(params[:id])
-    @user_post = @user.posts.order("created_at DESC")
-    @count = invite_count
-  end
-
-  def friends
-
+    @count = current_user.invite_count
   end
 
   def create
@@ -46,31 +36,15 @@ class UsersController < ApplicationController
 
   private
 
-  def pending_invites
-    @invites = []
-    current_user.users_friended_by.each do |invite|
-      unless current_user.initiated_friendings.include?(invite)
-        @invites << invite
-      end
-    end
-    @invites
-  end
-
-  def invite_count
-    @count = 0
-    pending_invites.each do |invite|
-      if current_user.friended_users.include?(invite)
-        next
-      else
-        @count += 1
-      end
-    end
-    @count
-  end
 
   def set_user
     current_user ? @user = current_user : @user = User.find(params[:id])
   end
+
+  def get_user
+    User.find(params[:id].to_i)
+  end
+  helper_method :get_user
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation,
