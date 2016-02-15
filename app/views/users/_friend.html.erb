@@ -1,3 +1,4 @@
+<% present(friend, FriendPresenter) do |friend_presenter| %>
 <div class = "col-sm-6">
   <div class = "row" id = "friend">
     <div class = "col-sm-3">
@@ -5,16 +6,13 @@
     </div>
     <div class = "col-sm-5">
       <br />
-      <%= link_to friend.profile.fullname, user_timeline_path(friend), id: "friend-name" %>
-      <p id = "friend-amount"><%= friend.friends.count %> friends</p>
+      <%= link_to friend_presenter.fullname, user_timeline_path(friend), id: "friend-name" %>
+      <p id = "friend-amount"><%= friend_presenter.friend_count %> friends</p>
     </div>
     <div class = "col-sm-4">
       <br />
-      <% if @current_user.users_friended_by.include?(friend) %>
-        <%= link_to "Unfriend Me", friending_path(friend), method: :delete, class: 'btn btn-primary' %>
-      <% else %>
-        <%= link_to "Delete Invite", friending_path(friend), method: :delete, class: 'btn btn-danger' %>
-      <% end %>
+      <%= friend_presenter.friend_button %>
     </div>
   </div>
 </div>
+<% end %>
