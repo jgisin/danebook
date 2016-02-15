@@ -1,17 +1,18 @@
+<% present current_user do |user_presenter| %>
 <div id="user_nav">
   <nav class = "navbar nav-top container">
 
     <div class = "navbar-header">
 
       <%= image_tag "danish_flag.gif", class: 'navbar-brand logo' %>
-      <a class = "navbar-brand" href="<%=user_timeline_path(@current_user)%>">Danebook</a>
+      <a class = "navbar-brand" href="<%=user_timeline_path(current_user)%>">Danebook</a>
 
         <form class="navbar-form" id="top-contain">
           <div class="form-group" style="display:inline;">
             <input type="text" class="form-control" placeholder="Search for users" id="top-search">
             <%= link_to "Sign Out", session_path, method: :delete, class: "navbar-right" %>
             <%= link_to "#", "data-toggle" => "modal", "data-target" => "#invites", class: "navbar-right" do %>
-              <%= "#{@current_user.profile.fullname}" %>
+              <%= "#{user_presenter.fullname}" %>
               <span class="badge">   <%= current_user.invite_count %></span>
             <% end %>
           </div>
@@ -39,27 +40,22 @@
       <div class = "col-sm-8" id = "content-nav">
         <br /><br /><br />
         <h1 style="color: #FFFFFF;">
-          <%= user_page.profile.fullname %>
-          <% if friend? %>
-            <%= link_to "Add Friend", friendings_path(:id => params[:id]), method: :post, class: 'btn btn-lg btn-primary' %>
-          <% end %>
-          <% if unfriend? %>
-            <%= link_to "Unfriend Me", friending_path(:id => params[:id]), method: :delete, class: 'btn btn-lg btn-primary' %>
-          <% end %>
+          <%= user_presenter.fullname %>
+          <%= user_presenter.friend_button %>
         </h1>
         <br /><br />
 
         <ul class = "nav nav-justified" id = "content-menu">
-          <li><a href = "<%= user_timeline_path(@current_user) %>">Timeline</a></li>
-          <li><a href = "<%= user_path(@current_user) %>">About</a></li>
+          <li><a href = "<%= user_timeline_path(current_user) %>">Timeline</a></li>
+          <li><a href = "<%= user_path(current_user) %>">About</a></li>
           <li><a href = "#">Photos</a></li>
-          <li><a href = "<%= user_friends_path(@current_user) %>">Friends</a></li>
+          <li><a href = "<%= user_friends_path(current_user) %>">Friends</a></li>
         </ul>
       </div>
       <div class = "col-sm-2">
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <% if @current_user.id == params[:id].to_i %>
-        <a href = "<%= edit_user_path(@current_user) %>" id = "edit-profile">Edit Profile</a>
+        <% if current_users_page? %>
+          <a href = "<%= edit_user_path(current_user) %>" id = "edit-profile">Edit Profile</a>
         <% end %>
 
       </div>
@@ -68,4 +64,5 @@
     <br />
 
 
-<%= render partial: 'modalinvites', locals: {:invites => @invites} %>
+<%= render partial: 'modalinvites', locals: {:invites => current_user.pending_invites} %>
+<% end %>

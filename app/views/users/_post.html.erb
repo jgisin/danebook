@@ -28,7 +28,7 @@
       <%= render partial: 'modalcomment', locals: {:index => index, :posted => posted} %>
         <%= post_presenter.post_like_button %>
       </div>
-<% end %><!-- End Post Presenter -->
+    <% end %><!-- End Post Presenter -->
       <% if current_users_page? %>
       <%= link_to "Delete Post", post_path(posted), method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: "pull-right" %>
       <% end %>
@@ -60,12 +60,9 @@
           </div>
         <% end %>
       </div>
-
     <% end %>
   <% end %>
-  </div>
-
 <% end %>
-
   </div>
+</div>
 <br/>

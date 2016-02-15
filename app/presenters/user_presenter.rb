@@ -35,4 +35,24 @@ class UserPresenter < BasePresenter
     "#{user.profile.first_name} #{user.profile.last_name}"
   end
 
+  def friend?
+    if h.current_user == h.get_user || h.current_user.friended_users.include?(User.find(h.params[:id].to_i))
+      false
+    else
+      true
+    end
+  end
+
+  def unfriend?
+    h.current_user.friended_users.include?(User.find(h.params[:id].to_i))
+  end
+
+  def friend_button
+    if friend?
+      h.link_to "Add Friend", h.friendings_path(:id => h.params[:id]), method: :post, class: 'btn btn-lg btn-primary'
+    elsif unfriend?
+      h.link_to "Unfriend Me", h.friending_path(:id => h.params[:id]), method: :delete, class: 'btn btn-lg btn-primary'
+    end
+  end
+
 end
