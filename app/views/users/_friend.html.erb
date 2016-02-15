@@ -1,12 +1,12 @@
 <div class = "col-sm-6">
   <div class = "row" id = "friend">
     <div class = "col-sm-3">
-      <img src = "assets/user_silhouette_generic.gif" id = "friend-img">
+      <img src = "https://unsplash.it/90/75" id = "friend-img">
     </div>
     <div class = "col-sm-5">
       <br />
       <%= link_to friend.profile.fullname, user_timeline_path(friend), id: "friend-name" %>
-      <p id = "friend-amount"><%= friend.friended_users.count %> friends</p>
+      <p id = "friend-amount"><%= friend.friends.count %> friends</p>
     </div>
     <div class = "col-sm-4">
       <br />

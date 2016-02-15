@@ -14,16 +14,27 @@
 
       <div class = "row">
         <div class = "col-sm-4">
-          <p><b>Birthday:</b></p>
-          <br />
-          <p><b>College:</b></p>
-          <br />
-          <p><b>Hometown:</b></p>
-          <br />
+          <div class="container">
+          <div class="row">
+            <p><b>Birthday:</b></p>
+            </br></br/>
+          </div>
+          <div class="row">
+            <p><b>College:</b></p>
+            </br>
+          </div>
+          <div class="row">
+            <p><b>Hometown:</b></p>
+            <br/>
+          </div>
+          <div class="row">
           <p><b>Currently Lives:</b></p>
-          <br />
+          </div>
+
+        </div>
         </div>
         <div class = "col-sm-6">
+          <div class="row">
             <div class="col-xs-4">
               <%= profile_field.input :birth_month_id, label: false, placeholder: "Month", collection: BirthMonth.all, label_method: :month, value_method: :id %>
             </div>
@@ -33,8 +44,18 @@
             <div class="col-xs-4">
               <%= profile_field.input :year_id, label: false, placeholder: "Year", collection: Year.all.reverse, label_method: :year, value_method: :id %>
             </div>
+          </div>
           <br />
-          <%= profile_field.input :college_id, label: false, collection: College.all, label_method: :name, value_method: :id %>
+          <div class="row">
+          <div class="col-xs-6">
+            <%= profile_field.input :college_id, label: false, collection: College.all, label_method: :name, value_method: :id %>
+          </div>
+          <div class="col-xs-6">
+            <%= link_to "New College", "#", "data-toggle" => "modal", "data-target" => "#college" %>
+            <%= render partial: 'modalcollege', locals: {:profile_field => profile_field} %>
+          </div>
+        </div>
+
             <%= profile_field.simple_fields_for :hometown, hometown? do |hometown_field| %>
               <div class="col-xs-6">
                 <%= hometown_field.input :city, label: false %>

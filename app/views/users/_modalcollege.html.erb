@@ -1,0 +1,22 @@
+<div id="college" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">New College</h4>
+      </div>
+      <div class="modal-body">
+        <%= profile_field.simple_fields_for :college, @current_user.profile.build_college do |college_field| %>
+          <%= college_field.input :name, label: false, placeholder: "Enter College Name" %>
+      </div>
+      <div class="modal-footer">
+        <%= college_field.button :submit, "Save College", class: "btn btn-primary btn-md" %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

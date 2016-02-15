@@ -4,15 +4,13 @@
     <div class = "navbar-header">
 
       <%= image_tag "danish_flag.gif", class: 'navbar-brand logo' %>
-      <a class = "navbar-brand" href="/">Danebook</a>
+      <a class = "navbar-brand" href="<%=user_timeline_path(@current_user)%>">Danebook</a>
 
 
 
         <form class="navbar-form" id="top-contain">
           <div class="form-group" style="display:inline;">
-            <div class="input-group" id="top-search">
-              <input type="text" class="form-control" placeholder="Search for users">
-            </div>
+            <input type="text" class="form-control" placeholder="Search for users" id="top-search">
             <%= link_to "Sign Out", session_path, method: :delete, class: "navbar-right" %>
             <%= link_to "#", "data-toggle" => "modal", "data-target" => "#invites", class: "navbar-right" do %>
               <%= "#{@current_user.profile.fullname}" %>

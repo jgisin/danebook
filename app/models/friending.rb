@@ -10,4 +10,6 @@ class Friending < ActiveRecord::Base
 
   validates :friend_id, :uniqueness => { :scope => :friender_id }
 
+
+
 end

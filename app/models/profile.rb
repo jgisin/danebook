@@ -11,8 +11,11 @@ class Profile < ActiveRecord::Base
   accepts_nested_attributes_for :hometown,
                                 :reject_if => :all_blank
 
-accepts_nested_attributes_for :currently_live,
-                              :reject_if => :all_blank
+  accepts_nested_attributes_for :currently_live,
+                                :reject_if => :all_blank
+
+  accepts_nested_attributes_for :college,
+                                :reject_if => :all_blank
 
   def birthday
     "#{self.birth_month.month} #{self.birth_day}, #{self.year.year}"

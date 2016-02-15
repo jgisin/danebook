@@ -44,4 +44,17 @@ class User < ActiveRecord::Base
     save!
   end
 
+  def friends
+    sql = "
+      SELECT DISTINCT users.*
+      FROM users
+      JOIN friendings
+        ON users.id = friendings.friender_id
+      JOIN friendings AS reflected_friendings
+        ON reflected_friendings.friender_id = friendings.friend_id
+      WHERE reflected_friendings.friender_id = ?
+      "
+      User.find_by_sql([sql,self.id])
+  end
+
 end

@@ -87,6 +87,7 @@ class UsersController < ApplicationController
                                                          :words_to_live_by,
                                                          :about_me,
                                                          :hometown_attributes => [:city, :state_id, :id],
-                                                         :currently_live_attributes => [:city, :state_id, :id]])
+                                                         :currently_live_attributes => [:city, :state_id, :id],
+                                                         :college_attributes => [:name, :id]])
   end
 end
