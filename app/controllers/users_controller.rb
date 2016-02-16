@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @users = User.all.search(params[:search])
+  end
+
   def update
     if current_user.update(user_params)
       redirect_to current_user, notice: 'User was successfully updated.'

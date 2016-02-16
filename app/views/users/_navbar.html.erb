@@ -1,25 +1,25 @@
 <% present current_user do |user_presenter| %>
 <div id="user_nav">
-  <nav class = "navbar nav-top container">
-
+  <nav class = "navbar nav-top">
+    <div class="container-fluid">
     <div class = "navbar-header">
-
       <%= image_tag "danish_flag.gif", class: 'navbar-brand logo' %>
       <a class = "navbar-brand" href="<%=user_timeline_path(current_user)%>">Danebook</a>
 
-        <form class="navbar-form" id="top-contain">
-          <div class="form-group" style="display:inline;">
-            <input type="text" class="form-control" placeholder="Search for users" id="top-search">
-            <%= link_to "Sign Out", session_path, method: :delete, class: "navbar-right" %>
+        <%= form_tag user_search_path(:id => current_user.id), method: :post, class: 'form-inline' do %>
+            <%= text_field_tag :search, nil, placeholder: "Search for users", id: "top-search", class: 'form-control' %>
+            <%= submit_tag "Search", class: 'btn btn-sm btn-default' %>
+
+            <%= link_to "Sign Out", session_path(current_user), method: :delete, class: "navbar-right" %>
             <%= link_to "#", "data-toggle" => "modal", "data-target" => "#invites", class: "navbar-right" do %>
               <%= "#{user_presenter.fullname}" %>
               <span class="badge">   <%= current_user.invite_count %></span>
-            <% end %>
-          </div>
-        </form>
-    </div>
-  </nav>
+        <% end %>
 
+    </div>
+  </div>
+  </nav>
+        <% end %>
 
   <div class = "container">
 
@@ -66,3 +66,7 @@
 
 <%= render partial: 'modalinvites', locals: {:invites => current_user.pending_invites} %>
 <% end %>
+<div class = "row">
+  <div class = "col-sm-1">
+  </div>
+  <div class = "col-sm-10" id = "main-header">

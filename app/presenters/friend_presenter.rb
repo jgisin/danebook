@@ -6,7 +6,7 @@ class FriendPresenter < UserPresenter
     friend.friends.count
   end
 
-  def friend_button
+  def unfriend_button
     if h.current_user.users_friended_by.include?(friend)
       h.link_to "Unfriend Me", h.friending_path(friend), method: :delete, class: 'btn btn-primary'
     else

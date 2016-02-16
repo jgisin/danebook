@@ -1,0 +1,37 @@
+<div id = "about-heading">
+  <h2 class=>Results<h2>
+</div>
+<div id="user_nav">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title text-center">Showing users whose first or last names contain "<%= params[:search] %>"</h3>
+    </div>
+    <div class="panel-body">
+      <% @users.each do |user| %>
+        <% present(user, FriendPresenter) do |user_presenter| %>
+          <div class = "row" id = "user">
+            <div class="panel">
+            <div class = "col-sm-2 col-sm-offset-2"><br/>
+              <img src = "https://unsplash.it/150/125" >
+            </div>
+            <div class = "col-sm-2">
+              <br />
+              <%= link_to user_presenter.fullname, user_timeline_path(user), id: "friend-name" %>
+              <p id = "friend-amount"><%= user_presenter.friend_count %> friends</p>
+              Currently Lives in <%= user_presenter.live %><br/>
+              From <%= user_presenter.home %><br/>
+              Born on <%= user_presenter.birthday %>
+            </div>
+            <div class = "col-sm-2">
+              <br />
+              <%= user_presenter.search_friend_button %>
+            </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>

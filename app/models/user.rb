@@ -93,4 +93,8 @@ class User < ActiveRecord::Base
       User.find_by_sql([sql,self.id])
   end
 
+  def self.search(search)
+    self.joins("JOIN profiles ON users.id = profiles.user_id").where("profiles.first_name ILIKE ('%#{search}%') OR profiles.last_name ILIKE ('%#{search}%')")
+  end
+
 end

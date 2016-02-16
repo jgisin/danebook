@@ -55,4 +55,14 @@ class UserPresenter < BasePresenter
     end
   end
 
+  def search_friend_button
+    if h.current_user.friended_users.include?(user)
+      h.link_to "Unfriend Me", h.friending_path(:id => h.params[:id]), method: :delete, class: 'btn btn-lg btn-warning'
+    elsif h.current_user == user
+      nil
+    else
+      h.link_to "Add Friend", h.friendings_path(:id => h.params[:id]), method: :post, class: 'btn btn-lg btn-primary'
+    end
+  end
+
 end

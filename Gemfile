@@ -26,6 +26,7 @@ gem 'faker'
 gem 'hirb'
 gem 'better_errors'
 gem 'simple_form'
+gem 'will_paginate'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor', group: :production

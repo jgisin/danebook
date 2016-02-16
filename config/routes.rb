@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   get 'users/:id/timeline' => 'users#timeline', as: :user_timeline
   get 'users/:id/friends' => 'users#friends', as: :user_friends
+  post 'users/search' => 'users#search', as: :user_search
 
   resources :posts do
     resources :comments, :defaults => {:commentable => 'Post'}, :only => [:create, :destroy] do
