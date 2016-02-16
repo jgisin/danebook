@@ -5,7 +5,7 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title text-center">Showing users whose first or last names contain "<%= params[:search] %>"</h3>
+      <h3 class="panel-title text-center">Showing <%= @users.count %> users whose first or last names contain "<%= params[:search] %>"</h3>
     </div>
     <div class="panel-body">
       <% @users.each do |user| %>
