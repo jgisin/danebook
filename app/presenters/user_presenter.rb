@@ -51,7 +51,7 @@ class UserPresenter < BasePresenter
     if friend?
       h.link_to "Add Friend", h.friendings_path(:id => h.params[:id]), method: :post, class: 'btn btn-lg btn-primary'
     elsif unfriend?
-      h.link_to "Unfriend Me", h.friending_path(:id => h.params[:id]), method: :delete, class: 'btn btn-lg btn-primary'
+      h.link_to "Unfriend Me", h.friending_path(:id => h.params[:id]), method: :delete, class: 'btn btn-lg btn-danger'
     end
   end
 

@@ -15,7 +15,8 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to current_user, notice: 'User was successfully created.'
     else
-      render :new
+      flash[:error] = "User Not Created"
+      redirect_to root_path
     end
   end
 

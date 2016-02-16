@@ -8,6 +8,7 @@ class Profile < ActiveRecord::Base
   belongs_to :hometown
   belongs_to :currently_live
 
+
   accepts_nested_attributes_for :hometown,
                                 :reject_if => :all_blank
 

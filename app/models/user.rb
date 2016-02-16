@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
             :length => {:in => 6..20},
             :allow_nil => true
 
+  validates :email, :presence => true,
+            :allow_nil => false,
+            :uniqueness => true
+
   accepts_nested_attributes_for :profile,
                                 :reject_if => :all_blank
 

@@ -14,7 +14,7 @@ class PostPresenter < BasePresenter
   end
 
   def get_like_post
-    post.likes.where(:user_id => h.current_user.id).first
+    post.likes.where(:user_id => h.current_user.id).first.id
   end
 
   def post_like_button
