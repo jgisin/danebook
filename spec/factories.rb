@@ -17,10 +17,10 @@ FactoryGirl.define do
     birth_month_id 6
     year_id 50
     birth_day 16
-    sex_id 1
+    sex
     college_id 10
-    hometown_id 15
-    currently_live_id 12
+    hometown
+    currently_live
     telephone "1234567"
     user
   end
@@ -28,5 +28,29 @@ FactoryGirl.define do
   factory :sex do
     name "Male"
   end
+
+  factory :birth_month do
+    month "January"
+    abbr "Jan"
+  end
+
+  factory :hometown do
+    city "Aurora"
+    state_id 5
+  end
+
+  factory :currently_live do
+    city "Denver"
+    state_id 5
+  end
+
+  factory :year do
+    year 1990
+  end
+
+  factory :college do
+    name "Viking Code School"
+  end
+
 
 end

@@ -9,4 +9,7 @@ class Post < ActiveRecord::Base
            :dependent => :destroy
 
   scope :sorted, lambda {order("posts DESC")}
+
+  validates :post_text, presence: true, length: { maximum: 300 }
+  validates :user, presence: true
 end

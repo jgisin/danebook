@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   #Authorization
   before_create :generate_token
+  after_create :make_profile
   has_secure_password
 
   #Associations
@@ -82,6 +83,10 @@ class User < ActiveRecord::Base
     self.auth_token = nil
     generate_token
     save!
+  end
+
+  def make_profile
+    self.build_profile
   end
 
   def friends

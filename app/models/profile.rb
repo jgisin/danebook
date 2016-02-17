@@ -18,6 +18,10 @@ class Profile < ActiveRecord::Base
   accepts_nested_attributes_for :college,
                                 :reject_if => :all_blank
 
+
+  validates :user, :first_name, :last_name, :sex,  presence: true
+
+
   def birthday
     "#{self.birth_month.month} #{self.birth_day}, #{self.year.year}"
   end

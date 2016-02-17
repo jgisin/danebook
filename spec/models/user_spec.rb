@@ -3,6 +3,7 @@ describe User do
 
   let(:user){build(:user)}
   let(:profile){create(:profile)}
+  let(:hometown){create(:hometown)}
 
   context "Validations" do
     it "is valid with default attributes" do
@@ -76,16 +77,16 @@ describe User do
     let(:num_friends){3}
 
     before do
-      user.users_friended_by = create_list(:user, num_friends)
-      user.save!
+      profile.user.users_friended_by = create_list(:user, num_friends)
+      profile.user.save!
     end
 
     it "returns the number of pending invites - pending_invites" do
-      expect(user.pending_invites.count).to eq(num_friends)
+      expect(profile.user.pending_invites.count).to eq(num_friends)
     end
 
     it "returns the number of pending invites - invite_count" do
-      expect(user.invite_count).to eq(num_friends)
+      expect(profile.user.invite_count).to eq(num_friends)
     end
   end
 
@@ -110,7 +111,10 @@ describe User do
       expect(profile.user.hometown?.is_a?(Hometown)).to eq(true)
     end
 
-    it "returns correct id of profile-hometown object when profile-hometown is set"
+    it "returns correct id of profile-hometown object when profile-hometown is set" do
+      profile.save!
+      expect(profile.user.hometown?.id).to_not eq(nil)
+    end
 
   end
 
@@ -136,7 +140,10 @@ describe User do
       expect(profile.user.currently_live?.is_a?(CurrentlyLive)).to eq(true)
     end
 
-    it "returns correct id of CurrentlyLive object when profile-currently_live is set"
+    it "returns correct id of CurrentlyLive object when profile-currently_live is set" do
+      profile.save!
+      expect(profile.user.currently_live?.id).to_not eq(nil)
+    end
 
   end
 
