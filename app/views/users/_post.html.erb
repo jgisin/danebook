@@ -24,9 +24,10 @@
       <div class="col-xs-3">
         <button type="button" class="btn btn-default btn-md text-left" data-toggle="modal" data-target="#myModal<%= index %>">New Comment</button>
       </div>
-      <div class="col-xs-3">
+      <div class="col-xs-6">
       <%= render partial: 'modalcomment', locals: {:index => index, :posted => posted} %>
-        <%= post_presenter.post_like_button %>
+        <%= post_presenter.post_like_button %><br/>
+        <%= post_presenter.like_text %>
       </div>
     <% end %><!-- End Post Presenter -->
       <% if current_users_page? %>
@@ -54,11 +55,14 @@
         <div class="col-xs-3">
           <%= comment_presenter.comment_like_button(posted) %>
         </div>
+          <div class="col-xs-6">
         <% if comment.user == current_user %>
-          <div class="col-xs-3">
-            <%= link_to "Delete Comment", post_comment_path(posted, comment), data: {confirm: "Are you sure you want to delete your comment?"}, method: :delete, class: "text-right" %>
-          </div>
+            <%= link_to "Delete Comment", post_comment_path(posted, comment), data: {confirm: "Are you sure you want to delete your comment?"}, method: :delete, class: "text-right" %><br/>
         <% end %>
+          <%= comment_presenter.like_text %>
+          </div>
+
+
       </div>
     <% end %>
   <% end %>
