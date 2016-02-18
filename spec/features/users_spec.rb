@@ -22,8 +22,8 @@ feature 'User accounts' do
     select('1998', :from => 'Year')
 
     choose('Male')
-    click_button "Sign In"
-    save_and_open_page
+    click_button 'Sign Up Now'
+    # save_and_open_page
 
     # expect(User.all.count).to eq(1)
 

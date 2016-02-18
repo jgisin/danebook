@@ -27,18 +27,18 @@ class Profile < ActiveRecord::Base
   end
 
   def home
-    if self.hometown.nil? == false
+    if !self.hometown.nil?
       "#{self.hometown.city}, #{self.hometown.state.name}"
     else
-      "N/A"
+      'N/A'
     end
   end
 
   def live
-    if self.currently_live.nil? == false
+    if !self.currently_live.nil?
       "#{self.currently_live.city}, #{self.currently_live.state.name}"
     else
-      "N/A"
+      'N/A'
     end
   end
 

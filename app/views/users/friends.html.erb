@@ -1,10 +1,12 @@
 <div id="user_nav">
-<div id = "about-heading">
-  <h2>Friends<h2>
-</div>
 
-<div id = "main-content">
+  <div id = "about-heading">
+    <h2>Friends</h2>
+  </div>
+
+  <div id = "main-content">
     <% current_user.friended_users.each do |friend| %>
       <%= render partial: 'friend', locals: {friend: friend} %>
     <% end %>
+  </div>
 </div>
