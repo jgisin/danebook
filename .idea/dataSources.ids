@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails danebook: production" uuid="2cb390f5-bfcb-4c6b-8175-7cb2244ab5b8">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails danebook: development" uuid="4d1ae65b-c519-423a-9bd0-313bd1c8c841">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails danebook: test" uuid="b8890aa4-10b9-4e3d-81bd-bbf5fba9695e">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
