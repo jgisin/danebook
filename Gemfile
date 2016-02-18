@@ -34,7 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor', group: :production
 # Use Unicorn as the app server
 gem 'unicorn'
-
+gem 'guard-rspec', require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -45,6 +45,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
+  gem 'poltergeist'
 end
 
 

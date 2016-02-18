@@ -3,20 +3,20 @@ describe User do
 
   let(:user){build(:user)}
   let(:profile){create(:profile)}
-  let(:new_user){create(:user, :email => "Foo@mail.com")}
+  let(:new_user){create(:user, :email => 'Foo@mail.com')}
 
-  context "Validations" do
-    it "is valid with default attributes" do
+  context 'Validations' do
+    it 'is valid with default attributes' do
       expect(user).to be_valid
     end
 
-    it "is not valid with a password too short" do
+    it 'is not valid with a password too short' do
       inv_user = build(:user, :password => "foo")
       expect(inv_user).to_not be_valid
     end
 
-    it "is not valid with a password too long" do
-      inv_user = build(:user, :password => "123456789012345678901")
+    it 'is not valid with a password too long' do
+      inv_user = build(:user, :password => '123456789012345678901')
       expect(inv_user).to_not be_valid
     end
 
@@ -112,28 +112,28 @@ describe User do
     end
   end
 
-  describe "#hometown? - empty" do
+  describe '#hometown? - empty' do
 
-    it "returns Hometown object when profile-hometown is nil" do
+    it 'returns Hometown object when profile-hometown is nil' do
       new_profile = build(:profile, :hometown_id => nil)
       new_profile.save!
       expect(new_profile.user.hometown?.is_a?(Hometown)).to eq(true)
     end
 
-    it "returns empty profile-hometown object when profile-hometown is nil" do
+    it 'returns empty profile-hometown object when profile-hometown is nil' do
       new_profile = build(:profile, :hometown_id => nil)
       new_profile.save!
       expect(new_profile.user.hometown?.id).to eq(nil)
     end
   end
 
-  describe "#hometown? - existing" do
+  describe '#hometown? - existing' do
 
-    it "returns Hometown object" do
+    it 'returns Hometown object' do
       expect(profile.user.hometown?.is_a?(Hometown)).to eq(true)
     end
 
-    it "returns correct id of profile-hometown object when profile-hometown is set" do
+    it 'returns correct id of profile-hometown object when profile-hometown is set' do
       profile.save!
       expect(profile.user.hometown?.id).to_not eq(nil)
     end
@@ -143,13 +143,13 @@ describe User do
   describe "#currently_live? - empty" do
 
 
-    it "returns CurrentlyLive object when profile-currently_live is nil" do
+    it 'returns CurrentlyLive object when profile-currently_live is nil' do
       new_profile = build(:profile, :currently_live_id => nil)
       new_profile.save!
       expect(new_profile.user.currently_live?.is_a?(CurrentlyLive)).to eq(true)
     end
 
-    it "returns empty CurrentlyLive object when profile-currently_live is nil" do
+    it 'returns empty CurrentlyLive object when profile-currently_live is nil' do
       new_profile = build(:profile, :currently_live_id => nil)
       new_profile.save!
       expect(new_profile.user.currently_live?.id).to eq(nil)
