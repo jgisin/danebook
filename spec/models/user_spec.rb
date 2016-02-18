@@ -3,7 +3,7 @@ describe User do
 
   let(:user){build(:user)}
   let(:profile){create(:profile)}
-  let(:hometown){create(:hometown)}
+  let(:new_user){create(:user, :email => "Foo@mail.com")}
 
   context "Validations" do
     it "is valid with default attributes" do
@@ -61,6 +61,28 @@ describe User do
 
     it "responds to comments" do
       expect(user).to respond_to(:comments)
+    end
+
+  end
+
+  describe "Friending Associations" do
+
+    it "has many initiated friendings" do
+      expect(user).to respond_to(:initiated_friendings)
+    end
+
+    it "has many friended users" do
+      user.friended_users += [new_user]
+      expect(user).to respond_to(:friended_users)
+      expect(user.friended_users.first.id).to eq(new_user.id)
+    end
+
+    it "has many recieved friendings" do
+      expect(user).to respond_to(:recieved_friendings)
+    end
+
+    it "has many users friended by" do
+      expect(user).to respond_to(:users_friended_by)
     end
 
   end
@@ -144,6 +166,19 @@ describe User do
       profile.save!
       expect(profile.user.currently_live?.id).to_not eq(nil)
     end
+
+  end
+
+  describe "#friends" do
+
+      it "finds reciprocated friendings" do
+        user.save!
+        user.friended_users << new_user
+        new_user.friended_users << user
+
+        expect(user.friends.length).to eq(1)
+        expect(new_user.friends.length).to eq(1)
+      end
 
   end
 

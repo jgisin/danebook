@@ -7,9 +7,9 @@ class LikesController < ApplicationController
       @like = Post.find(params[:post_id]).likes.build(user_id: params[:user_id])
     end
     if @like.save
-      flash[:success] = "Like Created"
+      flash[:success] = 'Like Created'
     else
-      flash[:error] = "Like creation failed"
+      flash[:error] = 'Like creation failed'
     end
     redirect_to request.referrer
   end
@@ -21,7 +21,7 @@ class LikesController < ApplicationController
       @like = Post.find(params[:post_id]).likes.where(:user_id => current_user.id).first
     end
     if @like.destroy
-      flash[:success] = "Unliked"
+      flash[:success] = 'Un-liked'
     else
       flash[:error] = "Couldn't Unlike"
     end

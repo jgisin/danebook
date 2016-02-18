@@ -21,7 +21,7 @@ describe Profile do
 
     describe "Users" do
 
-      specify "linking a valid user succeeds" do
+      specify "belongs to user" do
         user = create(:user)
         profile.user = user
         expect(profile).to be_valid
@@ -37,7 +37,7 @@ describe Profile do
 
     describe "Sex" do
 
-      specify "linking a valid gender succeeds" do
+      specify "belongs to sex" do
         sex = create(:sex)
         profile.sex = sex
         expect(profile).to be_valid
@@ -48,7 +48,7 @@ describe Profile do
 
     describe "Birth Month" do
 
-      specify "linking a valid birth_month succeeds" do
+      specify "belongs to birth month" do
         month = create(:birth_month)
         profile.birth_month = month
         expect(profile).to be_valid
@@ -58,7 +58,7 @@ describe Profile do
 
     describe "Year" do
 
-      specify "linking a valid year succeeds" do
+      specify "belongs to year" do
         year = create(:year)
         profile.year = year
         expect(profile).to be_valid
@@ -68,7 +68,7 @@ describe Profile do
 
     describe "Hometown" do
 
-      specify "linking a valid hometown succeeds" do
+      specify "belongs to hometown" do
         home = create(:hometown)
         profile.hometown = home
         expect(profile).to be_valid
@@ -78,7 +78,7 @@ describe Profile do
 
     describe "CurrentlyLive" do
 
-      specify "linking a valid currently lives succeeds" do
+      specify "belongs to currently_live" do
         live = create(:currently_live)
         profile.currently_live = live
         expect(profile).to be_valid
@@ -88,7 +88,7 @@ describe Profile do
 
     describe "College" do
 
-      specify "linking a valid college succeeds" do
+      specify "belongs to college" do
         college = create(:college)
         profile.college = college
         expect(profile).to be_valid

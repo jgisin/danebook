@@ -7,8 +7,9 @@ class User < ActiveRecord::Base
 
   #Associations
   has_one :profile
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :comments
+  has_many :likes
 
   #Friending
   #User initiating friendship
@@ -31,6 +32,7 @@ class User < ActiveRecord::Base
             :allow_nil => true
 
   validates :email, :presence => true,
+            :length => {:in => 4..30},
             :allow_nil => false,
             :uniqueness => true
 
@@ -59,17 +61,17 @@ class User < ActiveRecord::Base
 
   def hometown?
     if self.profile.hometown.nil?
-      return self.profile.build_hometown
+      self.profile.build_hometown
     else
-      return self.profile.hometown
+      self.profile.hometown
     end
   end
 
   def currently_live?
     if self.profile.currently_live.nil?
-      return self.profile.build_currently_live
+      self.profile.build_currently_live
     else
-      return self.profile.currently_live
+      self.profile.currently_live
     end
   end
 
@@ -86,11 +88,13 @@ class User < ActiveRecord::Base
   end
 
   def make_profile
-    self.build_profile
+    if self.profile.nil?
+      self.build_profile
+    end
   end
 
   def friends
-    sql = "
+    sql = '
       SELECT DISTINCT users.*
       FROM users
       JOIN friendings
@@ -98,7 +102,7 @@ class User < ActiveRecord::Base
       JOIN friendings AS reflected_friendings
         ON reflected_friendings.friender_id = friendings.friend_id
       WHERE reflected_friendings.friender_id = ?
-      "
+      '
       User.find_by_sql([sql,self.id])
   end
 

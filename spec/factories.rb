@@ -11,6 +11,19 @@ FactoryGirl.define do
     user
   end
 
+  factory :comment do
+    comment_text "Foo Comment"
+    user
+  end
+
+  factory :like do
+    user
+  end
+
+  factory :friending do
+
+  end
+
   factory :profile do
     first_name "Foo"
     last_name "Bar"
@@ -45,7 +58,7 @@ FactoryGirl.define do
   end
 
   factory :year do
-    year 1990
+    year 1998
   end
 
   factory :college do

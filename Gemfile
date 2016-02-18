@@ -42,7 +42,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'rspec-rails', '~> 3.0'
   gem 'byebug'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'launchy'
 end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
