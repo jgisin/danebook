@@ -7,7 +7,12 @@
         <a class = 'navbar-brand' href="<%=user_timeline_path(current_user)%>">Danebook</a>
 
           <%= form_tag user_search_path(:id => current_user.id), method: :post, class: 'form-inline' do %>
-              <%= text_field_tag :search, nil, placeholder: 'Search for users', id: 'top-search', class: 'form-control' %>
+              <%= text_field_tag :search, nil, placeholder: 'Search for users', id: 'top-search', class: 'awesomeplete form-control', list: 'mylist' %>
+            <datalist id='mylist'>
+              <% User.all.map{|user| user.profile.fullname}.each do |name|%>
+              <option><%= name %></option>
+                  <% end %>
+            </datalist>
               <%= submit_tag 'Search', class: 'btn btn-sm btn-default' %>
 
               <%= link_to 'Sign Out', session_path(current_user), method: :delete, class: 'navbar-right' %>

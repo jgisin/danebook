@@ -21,8 +21,8 @@ feature 'User accounts' do
     select('1', :from => 'Day')
     select('1998', :from => 'Year')
     choose('Male')
-
-    expect{ click_button 'Sign Up Now' }.to change(User, :count).by(1)
+    click_on 'Sign Up Now'
+    # expect{ click_button 'Sign Up Now' }.to change(User, :count).by(1)
     expect(page).to have_content('User was successfully created.')
   end
 

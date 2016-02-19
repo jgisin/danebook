@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require awesomplete
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require_tree .

@@ -19,7 +19,7 @@ class Profile < ActiveRecord::Base
                                 :reject_if => :all_blank
 
 
-  # validates :first_name, :last_name, :sex,  presence: true
+  validates :first_name, :last_name, :sex,  presence: true
 
 
   def birthday
