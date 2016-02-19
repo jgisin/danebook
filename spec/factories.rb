@@ -3,7 +3,12 @@ FactoryGirl.define do
   factory :user do
     sequence(:username){|n| "Foo#{n}"}
     email {"#{username}@bar.com"}
-    password "foobar"
+    password 'foobar'
+
+    trait :default do
+      email 'foo@bar.com'
+      password 'foobar'
+    end
   end
 
   factory :post do
@@ -25,36 +30,36 @@ FactoryGirl.define do
   end
 
   factory :profile do
-    first_name "Foo"
-    last_name "Bar"
-    birth_month_id 6
-    year_id 50
-    birth_day 16
+    first_name 'Foo'
+    last_name 'Bar'
+    birth_month
+    year
+    birth_day 1
     sex
-    college_id 10
+    college
     hometown
     currently_live
-    telephone "1234567"
-    user
+    telephone '1234567'
+    association :user, :factory => [:user, :default]
   end
 
   factory :sex do
-    name "Male"
+    name 'Male'
   end
 
   factory :birth_month do
-    month "January"
-    abbr "Jan"
+    month 'January'
+    abbr 'Jan'
   end
 
   factory :hometown do
-    city "Aurora"
-    state_id 5
+    city 'Aurora'
+    state
   end
 
   factory :currently_live do
-    city "Denver"
-    state_id 5
+    city 'Denver'
+    state
   end
 
   factory :year do
@@ -62,8 +67,11 @@ FactoryGirl.define do
   end
 
   factory :college do
-    name "Viking Code School"
+    name 'Viking Code School'
   end
 
+  factory :state do
+    name 'Colorado'
+  end
 
 end

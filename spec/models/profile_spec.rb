@@ -5,39 +5,35 @@ describe Profile do
   let(:profile){build(:profile)}
 
 
-  context "Validations" do
+  context 'Validations' do
 
-    it "is valid with default attributes" do
+    it 'is valid with default attributes' do
       expect(profile).to be_valid
     end
 
   end
 
-  context "Associations" do
+  context 'Associations' do
 
     before do
       profile.save!
     end
 
-    describe "Users" do
+    describe 'Users' do
 
-      specify "belongs to user" do
+      specify 'belongs to user' do
         user = create(:user)
         profile.user = user
         expect(profile).to be_valid
       end
 
-      specify "linking an invalid user does not succeed" do
-        profile.user_id = 1234
-        expect(profile).to_not be_valid
-      end
 
     end
 
 
-    describe "Sex" do
+    describe 'Sex' do
 
-      specify "belongs to sex" do
+      specify 'belongs to sex' do
         sex = create(:sex)
         profile.sex = sex
         expect(profile).to be_valid
@@ -46,9 +42,9 @@ describe Profile do
     end
 
 
-    describe "Birth Month" do
+    describe 'Birth Month' do
 
-      specify "belongs to birth month" do
+      specify 'belongs to birth month' do
         month = create(:birth_month)
         profile.birth_month = month
         expect(profile).to be_valid
@@ -56,9 +52,9 @@ describe Profile do
 
     end
 
-    describe "Year" do
+    describe 'Year' do
 
-      specify "belongs to year" do
+      specify 'belongs to year' do
         year = create(:year)
         profile.year = year
         expect(profile).to be_valid
@@ -66,9 +62,9 @@ describe Profile do
 
     end
 
-    describe "Hometown" do
+    describe 'Hometown' do
 
-      specify "belongs to hometown" do
+      specify 'belongs to hometown' do
         home = create(:hometown)
         profile.hometown = home
         expect(profile).to be_valid
@@ -76,9 +72,9 @@ describe Profile do
 
     end
 
-    describe "CurrentlyLive" do
+    describe 'CurrentlyLive' do
 
-      specify "belongs to currently_live" do
+      specify 'belongs to currently_live' do
         live = create(:currently_live)
         profile.currently_live = live
         expect(profile).to be_valid
@@ -86,9 +82,9 @@ describe Profile do
 
     end
 
-    describe "College" do
+    describe 'College' do
 
-      specify "belongs to college" do
+      specify 'belongs to college' do
         college = create(:college)
         profile.college = college
         expect(profile).to be_valid

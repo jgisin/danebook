@@ -45,7 +45,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
-  gem 'poltergeist'
+  gem 'selenium-webdriver'
 end
 
 

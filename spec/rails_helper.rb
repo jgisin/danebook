@@ -8,7 +8,7 @@ require 'rspec/rails'
 require 'factory_girl_rails'
 require 'capybara/rails'
 require 'capybara/rspec'
-require 'capybara/poltergeist'
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -24,8 +24,7 @@ require 'capybara/poltergeist'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-Capybara.javascript_driver = :poltergeist
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
@@ -38,6 +37,7 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = false
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
@@ -68,4 +68,6 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.include Macros::Login
 end

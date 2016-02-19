@@ -12,11 +12,15 @@ class UserPresenter < BasePresenter
   end
 
   def birthday
-    "#{user.profile.birth_month.month} #{user.profile.birth_day}, #{user.profile.year.year}"
+    if !user.profile.birth_month.nil?
+     "#{user.profile.birth_month.month} #{user.profile.birth_day}, #{user.profile.year.year}"
+    else
+      "N/A"
+    end
   end
 
   def home
-    if user.profile.hometown.nil? == false
+    if !user.profile.hometown.nil?
       "#{user.profile.hometown.city}, #{user.profile.hometown.state.name}"
     else
       "N/A"
@@ -24,7 +28,7 @@ class UserPresenter < BasePresenter
   end
 
   def live
-    if user.profile.currently_live.nil? == false
+    if !user.profile.currently_live.nil?
       "#{user.profile.currently_live.city}, #{user.profile.currently_live.state.name}"
     else
       "N/A"

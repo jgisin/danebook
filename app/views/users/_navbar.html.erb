@@ -1,23 +1,22 @@
 <% present current_user do |user_presenter| %>
-<div id="user_nav">
-  <nav class = "navbar nav-top">
-    <div class="container-fluid">
-    <div class = "navbar-header">
-      <%= image_tag "danish_flag.gif", class: 'navbar-brand logo' %>
-      <a class = "navbar-brand" href="<%=user_timeline_path(current_user)%>">Danebook</a>
+<div id='user_nav'>
+  <nav class = 'navbar nav-top'>
+    <div class='container-fluid'>
+      <div class = 'navbar-header'>
+        <%= image_tag 'danish_flag.gif', class: 'navbar-brand logo' %>
+        <a class = 'navbar-brand' href="<%=user_timeline_path(current_user)%>">Danebook</a>
 
-        <%= form_tag user_search_path(:id => current_user.id), method: :post, class: 'form-inline' do %>
-            <%= text_field_tag :search, nil, placeholder: "Search for users", id: "top-search", class: 'form-control' %>
-            <%= submit_tag "Search", class: 'btn btn-sm btn-default' %>
+          <%= form_tag user_search_path(:id => current_user.id), method: :post, class: 'form-inline' do %>
+              <%= text_field_tag :search, nil, placeholder: 'Search for users', id: 'top-search', class: 'form-control' %>
+              <%= submit_tag 'Search', class: 'btn btn-sm btn-default' %>
 
-            <%= link_to "Sign Out", session_path(current_user), method: :delete, class: "navbar-right" %>
-            <%= link_to "#", "data-toggle" => "modal", "data-target" => "#invites", class: "navbar-right" do %>
-              <%= "#{user_presenter.fullname}" %>
-              <span class="badge">   <%= current_user.invite_count %></span>
-        <% end %>
-
+              <%= link_to 'Sign Out', session_path(current_user), method: :delete, class: 'navbar-right' %>
+              <%= link_to '#', 'data-toggle' => 'modal', 'data-target' => '#invites', class: 'navbar-right' do %>
+                <%= "#{user_presenter.fullname}" %>
+                <span class="badge">   <%= current_user.invite_count %></span>
+          <% end %>
+      </div>
     </div>
-  </div>
   </nav>
         <% end %>
 
@@ -34,7 +33,7 @@
 
     <div class = "row">
       <div class = "col-sm-2">
-        <%= image_tag "harry_potter_small.jpg", id: "user-img", alt: "No Pic Loaded" %>
+        <%= image_tag 'harry_potter_small.jpg', id: 'user-img', alt: 'No Pic Loaded' %>
       </div>
 
       <div class = "col-sm-8" id = "content-nav">
