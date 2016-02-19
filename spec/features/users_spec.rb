@@ -50,28 +50,19 @@ feature 'Timeline' do
   end
 
   scenario 'after login users birthday is displayed' do
-    prof = create(:profile)
-    User.first.profile = prof
-    User.first.save!
-    sign_in
-    expect(page).to have_content(prof.birthday)
+    default_sign_in
+    expect(page).to have_content(User.first.profile.birthday)
   end
 
   scenario 'logged in user has Edit Profile link' do
-    prof = create(:profile)
-    User.first.profile = prof
-    User.first.save!
-    sign_in
+    default_sign_in
     expect(page).to have_content('Edit Profile')
   end
 
   scenario 'visiting other users page will not show their edit profile link' do
-    prof = create(:profile)
+    default_sign_in
     user2 = create(:user, email: 'foo@bloo.com')
     user2.profile = create(:profile, :user => user2)
-    User.first.profile = prof
-    User.first.save!
-    sign_in
     visit user_path(user2)
     expect(page).to_not have_content('Edit Profile')
   end
@@ -79,10 +70,7 @@ end
 
 feature 'Edit Profile' do
   before do
-    prof = create(:profile)
-    User.first.profile = prof
-    User.first.save!
-    sign_in
+    default_sign_in
   end
 
   scenario 'Edit Profile saves words to live by' do
@@ -95,10 +83,7 @@ end
 
 feature 'Search' do
   before do
-    prof = create(:profile)
-    User.first.profile = prof
-    User.first.save!
-    sign_in
+    default_sign_in
   end
 
   scenario 'Search pulls up list of matches' do
@@ -106,4 +91,51 @@ feature 'Search' do
     click_on 'Search'
     expect(page).to have_content("Born on #{User.first.profile.birthday}")
   end
+end
+
+feature 'Post' do
+
+  before do
+    default_sign_in
+  end
+
+  scenario 'User can post to their own timeline' do
+    user_post
+    expect(page).to have_content('Test Post')
+  end
+
+  scenario 'User can delete a post they created', js: true do
+    user_post
+    expect(page).to have_content('Delete Post')
+  end
+
+  scenario 'User cannot post to another users timeline' do
+    user2 = create(:user, email: 'foo@bltoo.com')
+    user2.profile = create(:profile, :user => user2)
+    visit user_path(user2)
+    expect(page).to_not have_content('post[post_text]')
+  end
+
+  scenario 'User can comment on a post', js: true do
+    user_post
+    expect(page).to have_content('New Comment')
+  end
+
+  scenario 'User can delete a comment they created'
+  scenario 'User cannot delete a comment they did not create'
+
+  scenario 'User can like a post', js: true do
+    user_post
+    click_on('Like')
+    expect(page).to have_content('Success! Like Created')
+  end
+
+  scenario 'User can unlike a post', js: true do
+    user_post
+    click_on('Like')
+    click_on('Unlike')
+    expect(page).to have_content('Success! Un-liked')
+  end
+  scenario 'User can like a comment'
+  scenario 'User can unlike a comment'
 end

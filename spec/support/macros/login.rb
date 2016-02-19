@@ -8,5 +8,12 @@ module Macros
 
       click_button 'Sign In'
     end
+
+    def default_sign_in
+      prof = create(:profile)
+      User.first.profile = prof
+      User.first.save!
+      sign_in
+    end
   end
 end
