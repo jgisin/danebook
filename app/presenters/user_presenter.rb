@@ -40,15 +40,11 @@ class UserPresenter < BasePresenter
   end
 
   def friend?
-    if h.current_user == h.get_user || h.current_user.friended_users.include?(User.find(h.params[:id].to_i))
-      false
-    else
-      true
-    end
+    !(h.current_user == h.get_user || h.current_user.friended_users.include?(User.find(h.get_user.id)))
   end
 
   def unfriend?
-    h.current_user.friended_users.include?(User.find(h.params[:id].to_i))
+    h.current_user.friended_users.include?(User.find(h.get_user.id))
   end
 
   def friend_button

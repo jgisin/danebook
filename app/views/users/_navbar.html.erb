@@ -10,8 +10,8 @@
               <%= text_field_tag :search, nil, placeholder: 'Search for users', id: 'top-search', class: 'awesomeplete form-control', list: 'mylist' %>
             <datalist id='mylist'>
               <% User.all.map{|user| user.profile.fullname}.each do |name|%>
-              <option><%= name %></option>
-                  <% end %>
+                <option><%= name %></option>
+              <% end %>
             </datalist>
               <%= submit_tag 'Search', class: 'btn btn-sm btn-default' %>
 
@@ -19,7 +19,7 @@
               <%= link_to '#', 'data-toggle' => 'modal', 'data-target' => '#invites', class: 'navbar-right' do %>
                 <%= "#{user_presenter.fullname}" %>
                 <span class="badge">   <%= current_user.invite_count %></span>
-          <% end %>
+              <% end %>
       </div>
     </div>
   </nav>

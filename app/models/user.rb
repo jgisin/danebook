@@ -107,7 +107,14 @@ class User < ActiveRecord::Base
   end
 
   def self.search(search)
-    self.joins("JOIN profiles ON users.id = profiles.user_id").where("profiles.first_name ILIKE ('%#{search}%') OR profiles.last_name ILIKE ('%#{search}%') OR (profiles.first_name ILIKE ('%#{search.split(' ')[0]}%') OR profiles.last_name ILIKE ('%#{search.split(' ')[1]}%'))")
+    return nil if search.nil?
+    if search.split(' ').length == 1
+      self.joins("JOIN profiles ON users.id = profiles.user_id")
+          .where("profiles.first_name ILIKE ('%#{search}%') OR profiles.last_name ILIKE ('%#{search}%')")
+    else
+      self.joins("JOIN profiles ON users.id = profiles.user_id")
+          .where("profiles.first_name ILIKE ('%#{search.split(' ')[0]}%') OR profiles.last_name ILIKE ('%#{search.split(' ')[1]}%')")
+    end
   end
 
 end
