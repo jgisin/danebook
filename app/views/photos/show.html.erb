@@ -1,0 +1,82 @@
+<div id="user_nav">
+
+  <div id = "about-heading">
+    <h2>Photo</h2>
+  </div>
+
+  <div class="col-xs-6">
+    <%= image_tag @photo.photo.url , style: 'width: 500px; height: 400px;' %><br/>
+    <%= link_to "Set as Profile", user_profile_photo_path(current_user, @photo), method: :post, class: 'pull-right'%><br/>
+    <%= link_to "Delete Photo", user_photo_path(current_user, @photo), method: :delete, class: 'pull-right' %>
+  </div>
+
+
+  <div class="col-xs-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="row">
+          <% present @photo.user do |user_presenter| %>
+
+              <div class="col-xs-3">
+                <%= user_presenter.profile_image %>
+              </div>
+
+              <div class="col-xs-6">
+                <%= user_presenter.user_show_link %><br/>
+                <span style="color: grey;"><%= user_presenter.birthday %></span>
+              </div>
+
+          <% end %>
+        </div>
+      </div>
+
+
+      <div class="panel-body">
+        <%= simple_form_for @photo.comments.build, url: user_photo_comments_path(current_user, @photo), html: {class: "form-signup"} do |photo_field| %>
+            <%= photo_field.input :comment_text, label: false, input_html: {class: "form-control"} %>
+            <%= photo_field.hidden_field :user_id, value: current_user.id %>
+            </div>
+            <div class="panel-footer text-right">
+              <%= photo_field.button :submit, "Comment", class: "btn btn-primary btn-md" %>
+            </div>
+        <% end %>
+
+        </div>
+    <br />
+
+
+    <% @photo.comments.each do |comment| %>
+        <% present comment do |comment_presenter| %>
+            <% if comment.id %>
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <%= comment_presenter.profile_image %>
+                      </div>
+                      <div class="col-xs-6">
+                        <%= comment_presenter.comment_user_show_link %><br/>
+                        <span style="color: grey;"><%= comment_presenter.created_at %></span>
+                      </div>
+
+                    </div>
+                    <p></br><%= comment_presenter.comment_text %></p>
+                    <div class="row">
+
+                      <div class="col-xs-6">
+                        <%= comment_presenter.photo_comment_like_button(@photo, comment) %><br/>
+                        <%= comment_presenter.like_text %>
+                      </div>
+
+                      <% if comment.user == current_user %>
+                          <%= link_to "Delete Comment", user_photo_comment_path(current_user, @photo, comment, comment_id: comment.id), data: {confirm: "Are you sure you want to delete your comment?"}, method: :delete, class: "pull-right" %>
+                      <% end %>
+                    </div>
+                  </div>
+
+                </div>
+            <% end %>
+        <% end %>
+    <% end %>
+  </div>
+</div>

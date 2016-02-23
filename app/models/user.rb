@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   #Authorization
   before_create :generate_token
   after_create :make_profile
+  after_create :send_mail
   has_secure_password
 
   #Associations
@@ -10,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments
   has_many :likes
+  has_many :photos
 
   #Friending
   #User initiating friendship
@@ -115,6 +117,18 @@ class User < ActiveRecord::Base
       self.joins("JOIN profiles ON users.id = profiles.user_id")
           .where("profiles.first_name ILIKE ('%#{search.split(' ')[0]}%') OR profiles.last_name ILIKE ('%#{search.split(' ')[1]}%')")
     end
+  end
+
+  def send_mail
+    User.send_welcome_email(self.id)
+  end
+
+  class << self
+    def send_welcome_email(id)
+      user = User.find(id)
+      UserMailer.welcome_email(user).deliver!
+    end
+    handle_asynchronously :send_welcome_email
   end
 
 end

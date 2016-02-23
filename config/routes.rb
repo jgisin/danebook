@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resources :users
-  get 'users/:id/timeline' => 'users#timeline', as: :user_timeline
-  get 'users/:id/friends' => 'users#friends', as: :user_friends
-  post 'users/search' => 'users#search', as: :user_search
+  resources :users do
+    resources :photos, :only => [:show, :create, :destroy] do
+      resources :likes, :defaults => {:likeable => 'Photo'}, :only => [:create, :destroy]
+      resources :comments, :defaults => {:commentable => 'Photo'}, :only => [:create, :destroy] do
+        resources :likes, :defaults => {:likeable => 'Comment'}, :only => [:create, :destroy]
+      end
+    end
+  end
 
   resources :posts do
     resources :comments, :defaults => {:commentable => 'Post'}, :only => [:create, :destroy] do
@@ -16,6 +20,13 @@ Rails.application.routes.draw do
 
   resources :friendings, :only => [:create, :destroy]
   resources :session, :only => [:new, :create, :destroy, :index]
+
+  #Custom Routes
+  get 'users/:id/new_photo/' => 'users#new_photo', as: :new_user_photo
+  get 'users/:id/timeline' => 'users#timeline', as: :user_timeline
+  get 'users/:id/friends' => 'users#friends', as: :user_friends
+  post 'users/search' => 'users#search', as: :user_search
+  post 'users/:id/profile_photo/:photo_id' => 'profiles#set_profile_photo', as: :user_profile_photo
 
 
   root 'session#index'

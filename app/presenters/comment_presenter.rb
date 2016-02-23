@@ -25,6 +25,14 @@ class CommentPresenter < BasePresenter
     end
   end
 
+  def photo_comment_like_button(photo, comment)
+    if comment_liked?
+      h.link_to "Unlike", h.user_photo_comment_like_path(h.current_user, photo, comment, get_like_comment), method: :delete
+    else
+      h.link_to "Like", h.user_photo_comment_likes_path(h.current_user.id, photo.id, comment_id: comment.id), method: :post
+    end
+  end
+
   def current_user_like?
     liked = comment.likes.select{|like| like.user_id == h.current_user.id}
     liked.length > 0
@@ -57,6 +65,14 @@ class CommentPresenter < BasePresenter
       like_text = ""
     end
     like_text.html_safe
+  end
+
+  def profile_image
+    if h.get_user.profile.profile_photo_id.nil?
+      return "<img src='https://unsplash.it/90/70' alt='No img'>".html_safe
+    else
+      return h.image_tag(Photo.find(h.get_user.profile.profile_photo_id).photo.url(:thumb))
+    end
   end
 
 end

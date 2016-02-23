@@ -17,7 +17,7 @@
     </div>
   <% end %>
 
-  <%= render partial: 'navbar' %>
+  <%= render partial: "shared/navbar#{params[:controller]}" %>
 
   <%= yield %>
 

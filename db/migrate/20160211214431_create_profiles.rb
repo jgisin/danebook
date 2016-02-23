@@ -16,6 +16,8 @@ class CreateProfiles < ActiveRecord::Migration
       t.text :words_to_live_by
       t.text :about_me
 
+      t.integer :profile_photo_id
+
       t.timestamps null: false
     end
   end

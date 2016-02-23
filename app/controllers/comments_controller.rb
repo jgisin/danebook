@@ -1,7 +1,13 @@
 class CommentsController < ApplicationController
 
   def create
-    @comment = Post.find(params[:post_id]).comments.build(comment_params)
+
+    if params[:photo_id]
+      @comment = Photo.find(params[:photo_id]).comments.build(comment_params)
+    else
+      @comment = Post.find(params[:post_id]).comments.build(comment_params)
+    end
+
     if @comment.save
       flash[:success] = "Comment Created"
     else
@@ -11,7 +17,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Post.find(params[:post_id]).comments.find(params[:id])
+    if params[:photo_id]
+      @comment = Photo.find(params[:photo_id]).comments.find(params[:comment_id])
+    else
+      @comment = Post.find(params[:post_id]).comments.find(params[:id])
+    end
+
     if @comment.destroy
       flash[:success] = "Comment Deleted"
     else

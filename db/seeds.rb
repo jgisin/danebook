@@ -72,6 +72,12 @@ puts "Deleted all users and profiles"
   rand(1..5).times do
     post = usr.posts.build(post_text: Faker::Hipster.sentence(rand(1..4)))
     post.save
+    if usr.id > 1
+      friend =  User.find(rand(1..usr.id))
+    else
+      friend = usr
+    end
+    usr.friended_users << friend unless (usr.friended_users.include?(friend) || usr == friend)
     rand(5).times do
       c = post.comments.build(comment_text: Faker::Hipster.sentence(rand(1..4)), user_id: rand(1..100))
       c.save

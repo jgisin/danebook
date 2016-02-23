@@ -24,6 +24,11 @@ class UsersController < ApplicationController
     @users = User.all.search(params[:search])
   end
 
+  def new_photo
+    @photos = User.find(params[:id]).photos
+  end
+
+
   def update
     if current_user.update(user_params)
       redirect_to current_user, notice: 'User was successfully updated.'

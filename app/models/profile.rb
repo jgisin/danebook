@@ -7,6 +7,7 @@ class Profile < ActiveRecord::Base
   belongs_to :college
   belongs_to :hometown
   belongs_to :currently_live
+  belongs_to :photo, :foreign_key => :profile_photo_id
 
 
   accepts_nested_attributes_for :hometown,
@@ -17,7 +18,6 @@ class Profile < ActiveRecord::Base
 
   accepts_nested_attributes_for :college,
                                 :reject_if => :all_blank
-
 
   validates :first_name, :last_name, :sex,  presence: true
 

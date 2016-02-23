@@ -36,6 +36,11 @@ gem 'rails_12factor', group: :production
 # Use Unicorn as the app server
 gem 'unicorn'
 gem 'guard-rspec', require: false
+gem 'figaro'
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
+gem 'letter_opener'
+gem 'delayed_job_active_record'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

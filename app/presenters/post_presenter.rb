@@ -59,4 +59,12 @@ class PostPresenter < BasePresenter
     end
   end
 
+  def profile_image
+    if h.get_user.profile.profile_photo_id.nil?
+      return "<img src='https://unsplash.it/90/70' alt='No img'>".html_safe
+    else
+      return h.image_tag(Photo.find(h.get_user.profile.profile_photo_id).photo.url(:thumb))
+    end
+  end
+
 end

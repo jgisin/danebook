@@ -1,0 +1,14 @@
+<div id="user_nav">
+  <button type="button" class="btn-primary pull-right" data-toggle="modal" data-target="#newphoto">Add Photo!</button>
+  <div id = "about-heading">
+    <h2>Photos</h2>
+  </div>
+<br/>
+  <div id = "main-content">
+    <% @photos.each do |photo| %>
+        <%= render partial: 'photo', locals: {photo: photo} %>
+    <% end %>
+  </div>
+</div>
+
+<%= render partial: 'modalnewphoto', locals: {:photo => current_user.photos.build} %>

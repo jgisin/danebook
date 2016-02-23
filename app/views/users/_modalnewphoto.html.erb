@@ -1,0 +1,29 @@
+
+<div id="newphoto" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">New Photo</h4>
+      </div>
+      <div class="modal-body">
+        <%=  form_for photo, url: user_photos_path(:user_id => current_user.id) do |photo_fields| %>
+            <h3>Upload Your Photo</h3>
+            <%= photo_fields.hidden_field :user_id, value: current_user.id %>
+            <%= photo_fields.file_field :photo %>
+            <%= text_field_tag :url, nil, {placeholder: 'Type URL for photo from URL', class: 'form-control'} %>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= photo_fields.submit "Add Photo", class: "btn btn-primary" %>
+
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

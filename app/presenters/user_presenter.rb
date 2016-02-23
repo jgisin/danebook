@@ -39,6 +39,10 @@ class UserPresenter < BasePresenter
     "#{user.profile.first_name} #{user.profile.last_name}"
   end
 
+  def user_show_link
+    h.link_to self.fullname, h.user_timeline_path(user)
+  end
+
   def friend?
     !(h.current_user == h.get_user || h.current_user.friended_users.include?(User.find(h.get_user.id)))
   end
@@ -62,6 +66,14 @@ class UserPresenter < BasePresenter
       nil
     else
       h.link_to "Add Friend", h.friendings_path(:id => h.params[:id]), method: :post, class: 'btn btn-lg btn-primary'
+    end
+  end
+
+  def profile_image
+    if h.get_user.profile.profile_photo_id.nil?
+      return "<img src='https://unsplash.it/90/70' alt='No img'>".html_safe
+    else
+      return h.image_tag(Photo.find(h.get_user.profile.profile_photo_id).photo.url(:thumb))
     end
   end
 

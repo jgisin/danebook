@@ -38,7 +38,11 @@
 
     <div class = "row">
       <div class = "col-sm-2">
-        <%= image_tag 'harry_potter_small.jpg', id: 'user-img', alt: 'No Pic Loaded' %>
+        <% if get_user.profile.profile_photo_id.nil? %>
+            <%= image_tag 'harry_potter_small.jpg', id: 'user-img', alt: 'No Pic Loaded' %>
+        <% else %>
+            <%= image_tag Photo.find(get_user.profile.profile_photo_id).photo.url(:medium) %>
+        <% end %>
       </div>
 
       <div class = "col-sm-8" id = "content-nav">
@@ -52,8 +56,8 @@
         <ul class = "nav nav-justified" id = "content-menu">
           <li><a href = "<%= user_timeline_path(current_user) %>">Timeline</a></li>
           <li><a href = "<%= user_path(current_user) %>">About</a></li>
-          <li><a href = "#">Photos</a></li>
-          <li><a href = "<%= user_friends_path(current_user) %>">Friends</a></li>
+          <li><a href = "<%= new_user_photo_path(current_user) %>">Photos  <span class="badge"><%= get_user.photos.count %></span></a></li>
+          <li><a href = "<%= user_friends_path(current_user) %>">Friends  <span class="badge"><%= get_user.friends.count %></span></a></li>
         </ul>
       </div>
       <div class = "col-sm-2">

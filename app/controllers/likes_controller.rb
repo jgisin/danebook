@@ -1,10 +1,18 @@
 class LikesController < ApplicationController
 
   def create
-    if params[:comment_id]
-      @like = Post.find(params[:post_id]).comments.find(params[:comment_id]).likes.build(user_id: params[:user_id])
-    else
-      @like = Post.find(params[:post_id]).likes.build(user_id: params[:user_id])
+    if params[:post_id]
+      if params[:comment_id]
+        @like = Post.find(params[:post_id]).comments.find(params[:comment_id]).likes.build(user_id: params[:user_id])
+      else
+        @like = Post.find(params[:post_id]).likes.build(user_id: params[:user_id])
+      end
+    elsif params[:photo_id]
+      if params[:comment_id]
+        @like = Photo.find(params[:photo_id]).comments.find(params[:comment_id]).likes.build(user_id: params[:user_id])
+      else
+        @like = Photo.find(params[:photo_id]).likes.build(user_id: params[:user_id])
+      end
     end
     if @like.save
       flash[:success] = 'Like Created'

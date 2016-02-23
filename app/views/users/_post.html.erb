@@ -8,7 +8,7 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-xs-2">
-        <img src="https://unsplash.it/90/75" alt="No img">
+        <%= post_presenter.profile_image %>
       </div>
       <div class="col-xs-6">
         <%= post_presenter.post_user_show_link %><br/>
@@ -42,7 +42,7 @@
           <hr/>
       <div class="row">
         <div class="col-xs-2">
-          <img src="https://unsplash.it/90/70" alt="No img">
+          <%= comment_presenter.profile_image %>
         </div>
         <div class="col-xs-6">
           <%= comment_presenter.comment_user_show_link %><br/>

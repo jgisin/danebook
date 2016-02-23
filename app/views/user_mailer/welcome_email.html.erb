@@ -1,0 +1,11 @@
+<h1>Thanks for Signing Up!</h1>
+
+<p>
+  Hello <%= @user.profile.fullname %>,
+</p>
+
+<p>
+  Thanks for signing up. We look forward to many postings, that are commentable, likeable and memorable!
+</p>
+
+<%= link_to "Visit your account now", user_timeline_url(@user) %>
