@@ -31,9 +31,9 @@ class Photo < ActiveRecord::Base
   end
 
   def null_profile_photo
-    if self.user_from_id.profile.profile_photo_id == self.id
-      self.user_from_id.profile.profile_photo_id = nil
-      self.user_from_id.profile.save
+    if self.user.profile.profile_photo_id == self.id
+      self.user.profile.profile_photo_id = nil
+      self.user.profile.save!
     end
   end
 

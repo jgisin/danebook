@@ -56,7 +56,7 @@
   <% end %>
   <div class="row">
     <% @activities.each_with_index do |act, index| %>
-        <%= render partial: "#{act.activity_type.downcase}", locals: {:posted => act.send("#{act.activity_type.downcase}_from_id".to_sym), :index => index} %>
+          <%= render partial: "#{act.activity_type.downcase}", locals: {:posted => act.send("#{act.activity_type.downcase}_from_id".to_sym), :index => index} %>
     <% end %>
     <%= will_paginate @activities %>
   </div>

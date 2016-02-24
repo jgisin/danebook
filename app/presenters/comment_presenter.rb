@@ -25,6 +25,14 @@ class CommentPresenter < BasePresenter
     end
   end
 
+  def photo_comment_like(photo)
+    if comment_liked?
+      h.link_to "Unlike", h.user_photo_comment_like_path(h.current_user, photo, comment, get_like_comment), method: :delete
+    else
+      h.link_to "Like", h.user_photo_comment_likes_path(h.current_user, photo, comment, :user_id => h.current_user.id), method: :post
+    end
+  end
+
   def photo_comment_like_button(photo, comment)
     if comment_liked?
       h.link_to "Unlike", h.user_photo_comment_like_path(h.current_user, photo, comment, get_like_comment), method: :delete

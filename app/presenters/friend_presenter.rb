@@ -3,7 +3,7 @@ class FriendPresenter < UserPresenter
   presents :friend
 
   def friend_count
-    friend.friends.count
+    friend.friend_array.count
   end
 
   def unfriend_button

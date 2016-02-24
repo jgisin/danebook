@@ -26,7 +26,7 @@ class Activity < ActiveRecord::Base
   end
 
   def self.activity_list(current_user)
-    self.select("activities.*, MAX(activities.created_at) as recentact").group("activities.user_id, activities.id").order("recentact DESC").where("activities.user_id IN (#{current_user.friend_ids.join(', ')})")
+    self.select("activities.*, MAX(activities.created_at) as recentact").group("activities.user_id, activities.id").order("recentact DESC").where("activities.user_id IN (#{current_user.friend_ids.join(', ')}, #{current_user.id})")
   end
 
   def self.user_list(current_user)
