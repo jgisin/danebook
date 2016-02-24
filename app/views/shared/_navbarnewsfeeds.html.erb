@@ -1,0 +1,30 @@
+<% present current_user do |user_presenter| %>
+    <div id='user_nav'>
+      <nav class = 'navbar nav-top'>
+        <div class='container-fluid'>
+          <div class = 'navbar-header'>
+            <%= image_tag 'danish_flag.gif', class: 'navbar-brand logo' %>
+            <a class = 'navbar-brand' href="<%=user_newsfeed_path(current_user)%>">Danebook</a>
+
+            <%= form_tag user_search_path(:id => current_user.id), method: :post, class: 'form-inline' do %>
+                <%= text_field_tag :search, nil, placeholder: 'Search for users', id: 'top-search', class: 'awesomeplete form-control', list: 'mylist' %>
+                <datalist id='mylist'>
+                  <% User.all.map{|user| user.profile.fullname}.each do |name|%>
+                      <option><%= name %></option>
+                  <% end %>
+                </datalist>
+                <%= submit_tag 'Search', class: 'btn btn-sm btn-default' %>
+
+                <%= link_to 'Sign Out', session_path(current_user), method: :delete, class: 'navbar-right' %>
+                <%= link_to '#', 'data-toggle' => 'modal', 'data-target' => '#invites', class: 'navbar-right' do %>
+                    <%= "#{user_presenter.fullname}" %>
+                    <span class="badge">   <%= current_user.invite_count %></span>
+                <% end %>
+                </div>
+                </div>
+                </nav>
+            <% end %>
+<% end %>
+</div>
+
+<%= render partial: 'modalinvites', locals: {:invites => current_user.pending_invites} %>

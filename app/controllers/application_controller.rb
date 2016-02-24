@@ -58,4 +58,9 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def get_user
+    User.find(params[:id].to_i)
+  end
+  helper_method :get_user
 end

@@ -4,7 +4,7 @@
     <div class='container-fluid'>
       <div class = 'navbar-header'>
         <%= image_tag 'danish_flag.gif', class: 'navbar-brand logo' %>
-        <a class = 'navbar-brand' href="<%=user_timeline_path(current_user)%>">Danebook</a>
+        <a class = 'navbar-brand' href="<%=user_newsfeed_path(current_user)%>">Danebook</a>
 
           <%= form_tag user_search_path(:id => current_user.id), method: :post, class: 'form-inline' do %>
               <%= text_field_tag :search, nil, placeholder: 'Search for users', id: 'top-search', class: 'awesomeplete form-control', list: 'mylist' %>

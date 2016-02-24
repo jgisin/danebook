@@ -1,0 +1,70 @@
+<% present posted do |post_presenter| %>
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        <h3 class="panel-title">Post</h3>
+      </div>
+
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-2">
+            <%= post_presenter.profile_image %>
+          </div>
+          <div class="col-xs-6">
+            <%= post_presenter.post_user_show_link %><br/>
+            <span style="color: grey;"><%= post_presenter.created_at %></span>
+          </div>
+        </div>
+        <p><br/><%= post_presenter.post_text %></p>
+      </div>
+
+
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-xs-3">
+            <button type="button" class="btn btn-default btn-md text-left" data-toggle="modal" data-target="#myModal<%= index %>">New Comment</button>
+          </div>
+          <div class="col-xs-6">
+            <%= render partial: 'modalcomment', locals: {:index => index, :posted => posted} %>
+            <%= post_presenter.post_like_button %><br/>
+            <%= post_presenter.like_text %>
+          </div>
+<% end %><!-- End Post Presenter -->
+<% if current_users_page? %>
+    <%= link_to "Delete Post", post_path(posted), method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: "pull-right" %>
+<% end %>
+</div>
+
+
+<% posted.comments.each do |comment| %>
+    <% present comment do |comment_presenter| %>
+        <% if comment.id %>
+            <hr/>
+            <div class="row">
+              <div class="col-xs-2">
+                <%= comment_presenter.profile_image %>
+              </div>
+              <div class="col-xs-6">
+                <%= comment_presenter.comment_user_show_link %><br/>
+                <span style="color: grey;"><%= comment_presenter.created_at %></span>
+              </div>
+            </div>
+            <p></br><%= comment_presenter.comment_text %></p>
+            <div class="row">
+
+              <div class="col-xs-6">
+                <%= comment_presenter.comment_like_button(posted) %><br/>
+                <%= comment_presenter.like_text %>
+              </div>
+
+              <% if comment.user == current_user %>
+                  <%= link_to "Delete Comment", post_comment_path(posted, comment), data: {confirm: "Are you sure you want to delete your comment?"}, method: :delete, class: "pull-right" %>
+              <% end %>
+            </div>
+
+        <% end %>
+    <% end %>
+<% end %>
+</div>
+</div>
+<br/>

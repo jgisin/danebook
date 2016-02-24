@@ -45,4 +45,8 @@ class Profile < ActiveRecord::Base
   def fullname
     "#{self.first_name} #{self.last_name}"
   end
+
+  def photo_from_id
+    Photo.find(self.profile_photo_id)
+  end
 end

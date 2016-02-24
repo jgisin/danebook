@@ -51,10 +51,6 @@ class UsersController < ApplicationController
     current_user ? @user = current_user : @user = User.find(params[:id])
   end
 
-  def get_user
-    User.find(params[:id].to_i)
-  end
-  helper_method :get_user
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation,

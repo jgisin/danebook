@@ -28,7 +28,22 @@
 
           <% end %>
         </div>
-      </div>
+        <div class="row">
+
+          <div class="col-xs-3">
+            <% present @photo do |photo_presenter| %>
+                <br/>
+                <%= photo_presenter.photo_like_button(@photo) %>
+          </div>
+
+
+          <div class="col-xs-6">
+            <br/>
+            <%= photo_presenter.like_text %>
+          </div>
+        </div>
+            <% end %>
+    </div>
 
 
       <div class="panel-body">

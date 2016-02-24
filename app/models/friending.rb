@@ -1,4 +1,5 @@
 class Friending < ActiveRecord::Base
+  after_create :add_activity
 
   belongs_to :friend_initiator,
              foreign_key: :friender_id,
@@ -10,6 +11,10 @@ class Friending < ActiveRecord::Base
 
   validates :friend_id, :uniqueness => { :scope => :friender_id }
 
-
+  def add_activity
+    act = Activity.new(activity_type: 'Friending', activity_id: self.id)
+    act.user_id = self.user_id
+    act.save
+  end
 
 end

@@ -41,6 +41,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :profile,
                                 :reject_if => :all_blank
 
+  scope :updated, lambda {joins("JOIN posts ON users.id = posts.user_id").order("users.id, posts.created_at DESC").select("users.*, posts.created_at").distinct("users.id").group("users.id, posts.created_at")}
+
   def pending_invites
     self.users_friended_by.map do |invite|
       unless self.initiated_friendings.include?(invite)
@@ -129,6 +131,10 @@ class User < ActiveRecord::Base
       UserMailer.welcome_email(user).deliver!
     end
     handle_asynchronously :send_welcome_email
+  end
+
+  def include_friend?(friend_id)
+    !!self.friends.include?(User.find(friend_id))
   end
 
 end

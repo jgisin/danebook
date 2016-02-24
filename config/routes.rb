@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :session, :only => [:new, :create, :destroy, :index]
 
   #Custom Routes
+  get'users/:id/newsfeed/' => 'newsfeeds#index', as: :user_newsfeed
   get 'users/:id/new_photo/' => 'users#new_photo', as: :new_user_photo
   get 'users/:id/timeline' => 'users#timeline', as: :user_timeline
   get 'users/:id/friends' => 'users#friends', as: :user_friends

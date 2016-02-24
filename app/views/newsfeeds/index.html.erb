@@ -1,0 +1,68 @@
+
+<div class="col-xs-3" style="border-style: solid; border-left: white; border-bottom: white; border-top: white;">
+  <div class="row">
+    <% present current_user do |user_presenter| %>
+        <div class="col-xs-4">
+          <%= user_presenter.profile_image %>
+        </div>
+        <div class="col-xs-6">
+          <u> <%= user_presenter.user_show_link %></u> <br/>
+          <u> <%= link_to "Edit Profile", edit_user_path(current_user) %></u>
+        </div>
+        </div>      <% end %>
+
+    <div class="row">
+      <h3>Recently Active</h3>
+    </div>
+    <% @users.each do |act| %>
+        <% present act.user_from_id do |user_presenter| %>
+            <div class="row">
+              <div class="col-xs-4">
+                <% if act.user_from_id.profile.profile_photo_id.nil? %>
+                    <img src='https://unsplash.it/90/70' alt='No img'>
+                <% else %>
+                    <%= image_tag act.user_from_id.profile.photo_from_id.photo.url(:thumb) %>
+                <% end %>
+              </div>
+              <div class="col-xs-6">
+                <%= user_presenter.user_show_link %><br/>
+                <span style="color: grey;"><%= act.user_from_id.profile.birthday %></span>
+              </div>
+        <% end %>
+
+        </div>
+        <br/>
+    <% end %>
+    </div>
+
+<div class="col-xs-6 col-xs-offset-1">
+  <div class="row">
+  <% if current_users_page? %>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Post</h3>
+        </div>
+        <div class="panel-body">
+          <%= simple_form_for current_user.posts.build, html: {class: "form-signup"} do |post_field| %>
+              <%= post_field.input :post_text, label: false, input_html: {class: "form-control"} %>
+              </div>
+              <div class="panel-footer text-right">
+                <%= post_field.button :submit, "Post", class: "btn btn-primary btn-md" %>
+              </div>
+          <% end %>
+          </div>
+        </div>
+  <% end %>
+  <div class="row">
+    <% @activities.each_with_index do |act, index| %>
+        <%= render partial: "#{act.activity_type.downcase}", locals: {:posted => act.send("#{act.activity_type.downcase}_from_id".to_sym), :index => index} %>
+    <% end %>
+    <%= will_paginate @activities %>
+  </div>
+
+</div>
+
+
+
+

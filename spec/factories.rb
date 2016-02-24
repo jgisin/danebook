@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :activity do
+    activity_type "MyString"
+    activity_id 1
+  end
 
   factory :user do
     sequence(:username){|n| "Foo#{n}"}

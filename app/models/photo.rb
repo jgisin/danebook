@@ -1,4 +1,5 @@
 class Photo < ActiveRecord::Base
+  after_create :add_activity
 
   has_attached_file :photo, :styles => { :medium => "225x225", :thumb => "100x100", :jumbo => "800x400" }, :s3_host_name => 's3-us-west-2.amazonaws.com'
 
@@ -17,4 +18,11 @@ class Photo < ActiveRecord::Base
   def photo_from_url(url)
     self.photo = open(url)
   end
+
+  def add_activity
+    act = Activity.new(activity_type: 'Photo', activity_id: self.id)
+    act.user_id = self.user_id
+    act.save
+  end
+
 end
