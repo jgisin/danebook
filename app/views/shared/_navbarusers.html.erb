@@ -54,10 +54,10 @@
         <br /><br />
 
         <ul class = "nav nav-justified" id = "content-menu">
-          <li><a href = "<%= user_timeline_path(current_user) %>">Timeline</a></li>
-          <li><a href = "<%= user_path(current_user) %>">About</a></li>
-          <li><a href = "<%= new_user_photo_path(current_user) %>">Photos  <span class="badge"><%= get_user.photos.count %></span></a></li>
-          <li><a href = "<%= user_friends_path(current_user) %>">Friends  <span class="badge"><%= get_user.friend_array.count %></span></a></li>
+          <li><a href = "<%= user_timeline_path(get_user) %>">Timeline</a></li>
+          <li><a href = "<%= user_path(get_user) %>">About</a></li>
+          <li><a href = "<%= new_user_photo_path(get_user) %>">Photos  <span class="badge"><%= get_user.photos.count %></span></a></li>
+          <li><a href = "<%= user_friends_path(get_user) %>">Friends  <span class="badge"><%= get_user.friend_array.count %></span></a></li>
         </ul>
       </div>
       <div class = "col-sm-2">
