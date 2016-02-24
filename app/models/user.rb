@@ -150,7 +150,7 @@ class User < ActiveRecord::Base
     if array.length > 0
       array
     else
-      0
+      [0]
     end
   end
 
