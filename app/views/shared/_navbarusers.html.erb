@@ -38,7 +38,7 @@
 
     <div class = "row">
       <div class = "col-sm-2">
-        <% if get_user.profile.profile_photo_id.nil? %>
+        <% if get_user.profile.profile_photo_id.nil? || get_user.profile.photo_from_id %>
             <%= image_tag 'harry_potter_small.jpg', id: 'user-img', alt: 'No Pic Loaded' %>
         <% else %>
             <%= image_tag Photo.find(get_user.profile.profile_photo_id).photo.url(:medium) %>

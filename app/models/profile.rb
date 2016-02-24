@@ -47,6 +47,6 @@ class Profile < ActiveRecord::Base
   end
 
   def photo_from_id
-    Photo.find(self.profile_photo_id)
+    Photo.find(self.profile_photo_id).exists?
   end
 end
