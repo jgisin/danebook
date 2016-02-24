@@ -48,4 +48,5 @@ class Profile < ActiveRecord::Base
 
   def photo_from_id
     Photo.find(self.profile_photo_id)
+  end
 end
