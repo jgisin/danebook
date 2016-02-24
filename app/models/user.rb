@@ -125,7 +125,7 @@ class User < ActiveRecord::Base
           .where("profiles.first_name ILIKE ('%#{search}%') OR profiles.last_name ILIKE ('%#{search}%')")
     elsif search.split(' ').length == 2
       self.joins("JOIN profiles ON users.id = profiles.user_id")
-          .where("profiles.first_name ILIKE ('%#{search.split(' ')[0]}%') AND profiles.last_name ILIKE ('%#{search.split(' ')[1]}%')")
+          .where("profiles.first_name ILIKE ('%#{search}%')")
     end
   end
 
