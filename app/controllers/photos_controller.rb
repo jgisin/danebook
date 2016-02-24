@@ -24,7 +24,7 @@ class PhotosController < ApplicationController
     else
       flash[:error] = "Photo Deleting unsuccessful"
     end
-    redirect_to new_user_photo_path(@photo.user)
+    redirect_to new_user_photo_path(current_user)
   end
 
   private
