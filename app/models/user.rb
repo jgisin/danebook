@@ -146,7 +146,12 @@ class User < ActiveRecord::Base
   end
 
   def friend_ids
-    self.friend_array.map{|friend| friend.id}
+    array = self.friend_array.map{|friend| friend.id}
+    if array.length > 0
+      array
+    else
+      0
+    end
   end
 
 
