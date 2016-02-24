@@ -3,21 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="cf05e655-1844-4422-8d0f-b3e6f9bc3915" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/newsfeeds_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/newsfeeds_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/session_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/session_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/comment.rb" afterPath="$PROJECT_DIR$/app/models/comment.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/activity.rb" afterPath="$PROJECT_DIR$/app/models/activity.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/friending.rb" afterPath="$PROJECT_DIR$/app/models/friending.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/like.rb" afterPath="$PROJECT_DIR$/app/models/like.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/photo.rb" afterPath="$PROJECT_DIR$/app/models/photo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/post.rb" afterPath="$PROJECT_DIR$/app/models/post.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/profile.rb" afterPath="$PROJECT_DIR$/app/models/profile.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/photos/show.html.erb" afterPath="$PROJECT_DIR$/app/views/photos/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/newsfeeds/index.html.erb" afterPath="$PROJECT_DIR$/app/views/newsfeeds/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_navbarphotos.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_navbarphotos.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_navbarusers.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_navbarusers.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/timeline.html.erb" afterPath="$PROJECT_DIR$/app/views/users/timeline.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/factories.rb" afterPath="$PROJECT_DIR$/spec/factories.rb" />
     </list>
     <ignored path="danebook.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +37,7 @@
     <SUITE FILE_PATH="coverage/danebook@User_Validations_is_not_valid_with_no_email_address__danebook.coverage" NAME="User Validations is not valid with no email address: danebook Coverage Results" MODIFIED="1455767697127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="danebook" />
     <SUITE FILE_PATH="coverage/danebook@UsersController_POST__create_creates_a_new_user__danebook.coverage" NAME="UsersController POST #create creates a new user: danebook Coverage Results" MODIFIED="1455921079121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="danebook" />
     <SUITE FILE_PATH="coverage/danebook@UserPresenter_unfriend__returns_false_if_current_user_has_not_friended_get_user__danebook.coverage" NAME="UserPresenter#unfriend? returns false if current user has not friended get user: danebook Coverage Results" MODIFIED="1455927714564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="danebook" />
-    <SUITE FILE_PATH="coverage/danebook@Rails_console__danebook.coverage" NAME="Rails console: danebook Coverage Results" MODIFIED="1456275641127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="danebook" />
+    <SUITE FILE_PATH="coverage/danebook@Rails_console__danebook.coverage" NAME="Rails console: danebook Coverage Results" MODIFIED="1456349070215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="danebook" />
     <SUITE FILE_PATH="coverage/danebook@UsersController_POST__search_authorized_returns_sets_the__users_variable_to_a_list_of_search_results__danebook.coverage" NAME="UsersController POST #search authorized returns sets the @users variable to a list of search results: danebook Coverage Results" MODIFIED="1455923037244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="danebook" />
     <SUITE FILE_PATH="coverage/danebook@All_tests_in_spec__danebook.coverage" NAME="All tests in spec: danebook Coverage Results" MODIFIED="1455841391365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spec" MODULE_NAME="danebook" />
     <SUITE FILE_PATH="coverage/danebook@UsersController_POST__search_authorized_returns_sets_the__users_variable_to_a_list_of_search_results___first_name__danebook.coverage" NAME="UsersController POST #search authorized returns sets the @users variable to a list of search results - first name: danebook Coverage Results" MODIFIED="1455923151106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="danebook" />
@@ -100,43 +97,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/photos/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7606973">
-              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="likes_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/likes_controller.rb">
+      <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+              <caret line="96" column="7" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="photo_presenter.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/presenters/photo_presenter.rb">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/newsfeeds/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+            <state vertical-scroll-proportion="-2.3076923">
+              <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comment_presenter.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/presenters/comment_presenter.rb">
+      <file leaf-file-name="_photo.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/newsfeeds/_photo.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/activity.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8633093">
+              <caret line="32" column="104" selection-start-line="32" selection-start-column="104" selection-end-line="32" selection-end-column="104" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photo.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/photo.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post_presenter.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/presenters/post_presenter.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newsfeeds_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/newsfeeds_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -154,10 +189,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/spec/features/users_spec.rb" />
-        <option value="$PROJECT_DIR$/app/views/users/_navbar.html.erb" />
-        <option value="$PROJECT_DIR$/spec/controllers/users_controller_spec.rb" />
-        <option value="$PROJECT_DIR$/spec/presenters/user_presenter_spec.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160211214431_create_profiles.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160222221547_create_photos.rb" />
@@ -183,28 +214,32 @@
         <option value="$PROJECT_DIR$/config/secrets.yml" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/users/_post.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20160224034754_create_activities.rb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/models/photo.rb" />
         <option value="$PROJECT_DIR$/app/models/profile.rb" />
-        <option value="$PROJECT_DIR$/app/models/friending.rb" />
         <option value="$PROJECT_DIR$/app/views/newsfeeds/_post.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/newsfeeds_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/post.rb" />
         <option value="$PROJECT_DIR$/app/models/comment.rb" />
         <option value="$PROJECT_DIR$/app/views/newsfeeds/_comment.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/activity.rb" />
         <option value="$PROJECT_DIR$/app/models/like.rb" />
         <option value="$PROJECT_DIR$/app/views/newsfeeds/_like.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/newsfeeds/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/shared/_navbarnewsfeeds.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/shared/_navbarusers.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/shared/_navbarphotos.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/likes_controller.rb" />
         <option value="$PROJECT_DIR$/app/presenters/photo_presenter.rb" />
         <option value="$PROJECT_DIR$/app/views/photos/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/session_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/newsfeeds/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/timeline.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/friending.rb" />
+        <option value="$PROJECT_DIR$/app/views/shared/_navbarusers.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/shared/_navbarphotos.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20160224192311_add_index_to_profile.rb" />
+        <option value="$PROJECT_DIR$/app/models/photo.rb" />
+        <option value="$PROJECT_DIR$/app/views/newsfeeds/_photo.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/newsfeeds_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/activity.rb" />
       </list>
     </option>
   </component>
@@ -323,6 +358,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="danebook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="danebook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="danebook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -569,7 +618,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Rails.Development: danebook">
+  <component name="RunManager" selected="IRB console.Rails console: danebook">
     <configuration default="false" name="UsersController POST #search authorized returns all users if no argument is passed: danebook" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="danebook" />
@@ -934,12 +983,11 @@
       <item index="8" class="java.lang.String" itemvalue="RSpec.UserMailer welcome_email renders the headers: danebook" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="RSpec.UserMailer welcome_email renders the headers: danebook" />
-        <item index="1" class="java.lang.String" itemvalue="RSpec.UsersController GET #timeline authorized assigns the user from params id: danebook" />
-        <item index="2" class="java.lang.String" itemvalue="IRB console.Rails console: danebook" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="IRB console.Rails console: danebook" />
+        <item index="1" class="java.lang.String" itemvalue="RSpec.UserMailer welcome_email renders the headers: danebook" />
+        <item index="2" class="java.lang.String" itemvalue="RSpec.UsersController GET #timeline authorized assigns the user from params id: danebook" />
         <item index="3" class="java.lang.String" itemvalue="RSpec.UserPresenter#friend? visiting your own page returns false when you are on your own page: danebook" />
-        <item index="4" class="java.lang.String" itemvalue="RSpec.UsersController POST #search authorized returns all users if no argument is passed: danebook" />
       </list>
     </recent_temporary>
   </component>
@@ -1045,9 +1093,9 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297619" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.48809522" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.4904762" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2453027" sideWeight="0.6458333" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2453027" sideWeight="0.64285713" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28496867" sideWeight="0.5119048" order="10" side_tool="true" content_ui="tabs" x="-24" y="-877" width="632" height="817" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2453027" sideWeight="0.35714287" order="10" side_tool="true" content_ui="tabs" x="-24" y="-877" width="632" height="817" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1087,221 +1135,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/photos_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/photos/_modalinvites.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74179745">
-          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/friends.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2853067">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/comments_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://RailsDependency/#danebook">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>RailsDependency</ID>
-          <OriginalElement>#danebook</OriginalElement>
-          <nodes>
-            <node x="572.5" y="178.9051724137932">Year</node>
-            <node x="1762.0" y="463.85028735632187">Comment</node>
-            <node x="572.5" y="292.9051724137932">Sex</node>
-            <node x="99.5" y="0.0">State</node>
-            <node x="535.5" y="661.4752873563219">Friending</node>
-            <node x="1468.5" y="231.25000000000003">BirthMonth</node>
-            <node x="533.0" y="406.0011494252874">Photo</node>
-            <node x="562.5" y="42.905172413793196">Hometown</node>
-            <node x="1497.0" y="371.20862068965516">College</node>
-            <node x="1468.5" y="44.434482758620675">CurrentlyLive</node>
-            <node x="1011.5" y="475.0011494252874">Like</node>
-            <node x="856.0" y="70.13045977011495">Profile</node>
-            <node x="1439.0" y="522.4752873563218">Post</node>
-            <node x="30.0" y="449.72097701149426">User</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="Post" target="Comment">
-              <point x="121.5" y="-0.0" />
-              <point x="-134.0" y="20.25" />
-            </edge>
-            <edge source="State" target="CurrentlyLive">
-              <point x="142.0" y="-29.5" />
-              <point x="1359.0" y="29.75" />
-              <point x="1439.0" y="60.434482758620675" />
-              <point x="-92.0" y="-32.0" />
-            </edge>
-            <edge source="Post" target="Like">
-              <point x="-121.5" y="-44.25" />
-              <point x="1359.0" y="534.0011494252874" />
-              <point x="96.0" y="-0.0" />
-            </edge>
-            <edge source="Friending" target="User">
-              <point x="-119.0" y="-39.33333333333337" />
-              <point x="211.5" y="79.00000000000011" />
-            </edge>
-            <edge source="Comment" target="Like">
-              <point x="-134.0" y="-20.25" />
-              <point x="1682.0" y="492.7971264367817" />
-              <point x="1439.0" y="492.7971264367817" />
-              <point x="1359.0" y="494.66781609195414" />
-              <point x="96.0" y="-39.333333333333314" />
-            </edge>
-            <edge source="Photo" target="Profile">
-              <point x="121.5" y="-39.0" />
-              <point x="-251.5" y="159.16666666666663" />
-            </edge>
-            <edge source="Year" target="Profile">
-              <point x="82.0" y="-0.0" />
-              <point x="776.0" y="215.9051724137932" />
-              <point x="-251.5" y="-31.833333333333314" />
-            </edge>
-            <edge source="BirthMonth" target="Profile">
-              <point x="-92.0" y="-24.0" />
-              <point x="1439.0" y="255.25000000000003" />
-              <point x="251.5" y="-0.0" />
-            </edge>
-            <edge source="User" target="Profile">
-              <point x="211.5" y="-142.20000000000005" />
-              <point x="533.0" y="392.2137931034483" />
-              <point x="776.0" y="392.2137931034483" />
-              <point x="-251.5" y="95.5" />
-            </edge>
-            <edge source="Profile" target="CurrentlyLive">
-              <point x="251.5" y="-76.4" />
-              <point x="1439.0" y="124.43448275862067" />
-              <point x="-92.0" y="32.0" />
-            </edge>
-            <edge source="CurrentlyLive" target="Profile">
-              <point x="-92.0" y="-0.0" />
-              <point x="1439.0" y="92.43448275862067" />
-              <point x="251.5" y="-152.79999999999998" />
-            </edge>
-            <edge source="Like" target="User">
-              <point x="-96.0" y="39.33333333333337" />
-              <point x="856.0" y="573.3344827586208" />
-              <point x="776.0" y="560.9885057471265" />
-              <point x="211.5" y="-47.39999999999998" />
-            </edge>
-            <edge source="State" target="Hometown">
-              <point x="142.0" y="29.5" />
-              <point x="453.0" y="88.5" />
-              <point x="-92.0" y="-0.0" />
-            </edge>
-            <edge source="Photo" target="Comment">
-              <point x="121.5" y="-0.0" />
-              <point x="1682.0" y="464.5011494252874" />
-              <point x="-134.0" y="-60.75" />
-            </edge>
-            <edge source="Profile" target="Hometown">
-              <point x="-251.5" y="-159.16666666666654" />
-              <point x="776.0" y="66.9051724137932" />
-              <point x="92.0" y="-24.0" />
-            </edge>
-            <edge source="Profile" target="College">
-              <point x="251.5" y="152.79999999999995" />
-              <point x="1439.0" y="396.70862068965516" />
-              <point x="-63.5" y="-0.0" />
-            </edge>
-            <edge source="Profile" target="BirthMonth">
-              <point x="251.5" y="76.39999999999998" />
-              <point x="1439.0" y="303.25" />
-              <point x="-92.0" y="24.0" />
-            </edge>
-            <edge source="Post" target="User">
-              <point x="-121.5" y="14.75" />
-              <point x="1359.0" y="603.5011494252874" />
-              <point x="533.0" y="603.5011494252874" />
-              <point x="211.5" y="-15.799999999999955" />
-            </edge>
-            <edge source="User" target="User">
-              <point x="-211.5" y="79.0" />
-              <point x="10.0" y="686.7209770114943" />
-              <point x="10.0" y="785.7209770114943" />
-              <point x="135.75" y="785.7209770114943" />
-              <point x="-105.75" y="158.0" />
-            </edge>
-            <edge source="User" target="Like">
-              <point x="211.5" y="-79.0" />
-              <point x="533.0" y="534.0011494252874" />
-              <point x="-96.0" y="-0.0" />
-            </edge>
-            <edge source="Sex" target="Profile">
-              <point x="82.0" y="-0.0" />
-              <point x="776.0" y="329.9051724137932" />
-              <point x="-251.5" y="31.83333333333337" />
-            </edge>
-            <edge source="Like" target="Post">
-              <point x="96.0" y="39.33333333333337" />
-              <point x="1359.0" y="573.3344827586208" />
-              <point x="-121.5" y="-14.75" />
-            </edge>
-            <edge source="Photo" target="Like">
-              <point x="121.5" y="39.0" />
-              <point x="856.0" y="494.667816091954" />
-              <point x="-96.0" y="-39.33333333333337" />
-            </edge>
-            <edge source="User" target="Comment">
-              <point x="211.5" y="47.39999999999998" />
-              <point x="533.0" y="650.9752873563219" />
-              <point x="1682.0" y="650.9752873563219" />
-              <point x="-134.0" y="60.75" />
-            </edge>
-            <edge source="Hometown" target="Profile">
-              <point x="92.0" y="24.0" />
-              <point x="776.0" y="114.9051724137932" />
-              <point x="-251.5" y="-95.49999999999994" />
-            </edge>
-            <edge source="User" target="Photo">
-              <point x="211.5" y="-110.60000000000002" />
-              <point x="-121.5" y="-0.0" />
-            </edge>
-            <edge source="User" target="Post">
-              <point x="211.5" y="15.800000000000068" />
-              <point x="533.0" y="616.3218390804598" />
-              <point x="1359.0" y="616.3218390804598" />
-              <point x="-121.5" y="44.25" />
-            </edge>
-            <edge source="User" target="Friending">
-              <point x="211.5" y="110.60000000000002" />
-              <point x="-119.0" y="-0.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.6760975609756098" x="345.0" y="235.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Migration fields</Category>
-            <Category>Association fields</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/controllers/users_controller_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60522693">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/new_photo.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37089872">
@@ -1410,34 +1243,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.89601386">
           <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3119584">
-          <caret line="52" column="2" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/post_presenter.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="14" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="64" />
           <folding />
         </state>
       </provider>
@@ -1450,42 +1259,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="135" column="6" selection-start-line="135" selection-start-column="6" selection-end-line="135" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/photo.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/profile.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/friending.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/timeline.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.153847">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="67" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -1522,14 +1299,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/newsfeeds_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="97" selection-start-line="7" selection-start-column="97" selection-end-line="7" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/post.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.82733816">
@@ -1546,26 +1315,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/activity.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/newsfeeds/_like.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.5384616">
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/newsfeeds/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.076923">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1602,25 +1355,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_navbarusers.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_navbarphotos.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62780267">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/likes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.6906475">
           <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding />
         </state>
@@ -1628,7 +1365,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/presenters/comment_presenter.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.05755396">
           <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding />
         </state>
@@ -1636,7 +1373,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/presenters/photo_presenter.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="-0.55107915">
           <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
           <folding />
         </state>
@@ -1644,11 +1381,155 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/photos/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7606973">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.5979073">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/session_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4028777">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/timeline.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.846154">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/friending.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5755396">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/_friend.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/shared/_navbarphotos.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38415545">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/friends.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32884902">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/shared/_navbarusers.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52167416">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/search.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8370702">
+          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39568347">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160224192311_add_index_to_profile.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1438849">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/newsfeeds/_photo.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/newsfeeds/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3076923">
+          <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/post_presenter.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/photo.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="96" column="7" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/newsfeeds_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/activity.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8633093">
+          <caret line="32" column="104" selection-start-line="32" selection-start-column="104" selection-end-line="32" selection-end-column="104" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,5 @@
 class Friending < ActiveRecord::Base
-  after_create :add_activity
+
 
   belongs_to :friend_initiator,
              foreign_key: :friender_id,

@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.all.search(params[:search])
+    @users = User.search(params[:search])
   end
 
   def new_photo

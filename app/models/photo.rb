@@ -25,4 +25,8 @@ class Photo < ActiveRecord::Base
     act.save
   end
 
+  def user_from_id
+    User.find(self.user_id)
+  end
+
 end

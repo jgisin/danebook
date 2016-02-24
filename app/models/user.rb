@@ -110,14 +110,22 @@ class User < ActiveRecord::Base
       User.find_by_sql([sql,self.id])
   end
 
+  def friend_array
+    array = []
+    self.friended_users.each do |fu|
+      array << fu if self.users_friended_by.include?(fu)
+    end
+    array
+  end
+
   def self.search(search)
     return nil if search.nil?
     if search.split(' ').length == 1
       self.joins("JOIN profiles ON users.id = profiles.user_id")
           .where("profiles.first_name ILIKE ('%#{search}%') OR profiles.last_name ILIKE ('%#{search}%')")
-    else
+    elsif search.split(' ').length == 2
       self.joins("JOIN profiles ON users.id = profiles.user_id")
-          .where("profiles.first_name ILIKE ('%#{search.split(' ')[0]}%') OR profiles.last_name ILIKE ('%#{search.split(' ')[1]}%')")
+          .where("profiles.first_name ILIKE ('%#{search.split(' ')[0]}%') AND profiles.last_name ILIKE ('%#{search.split(' ')[1]}%')")
     end
   end
 
@@ -136,5 +144,10 @@ class User < ActiveRecord::Base
   def include_friend?(friend_id)
     !!self.friends.include?(User.find(friend_id))
   end
+
+  def friend_ids
+    self.friend_array.map{|friend| friend.id}
+  end
+
 
 end
