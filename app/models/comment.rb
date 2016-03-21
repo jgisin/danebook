@@ -16,4 +16,8 @@ class Comment < ActiveRecord::Base
   def post_from_id
     Post.find(self.commentable_id)
   end
+
+  def parent_user
+    self.commentable_type.classify.constantize.find(self.commentable_id).user
+  end
 end

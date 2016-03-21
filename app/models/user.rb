@@ -120,13 +120,13 @@ class User < ActiveRecord::Base
 
   def self.search(search)
     return nil if search.nil?
-    if search.split(' ').length == 1
+    # if search.split(' ').length == 1
       self.joins("JOIN profiles ON users.id = profiles.user_id")
           .where("profiles.first_name ILIKE ('%#{search}%') OR profiles.last_name ILIKE ('%#{search}%')")
-    elsif search.split(' ').length == 2
-      self.joins("JOIN profiles ON users.id = profiles.user_id")
-          .where("profiles.first_name ILIKE ('%#{search}%')")
-    end
+    # elsif search.split(' ').length == 2
+    #   self.joins("JOIN profiles ON users.id = profiles.user_id")
+    #       .where("profiles.first_name ILIKE ('%#{search}%')")
+    # end
   end
 
   def send_mail

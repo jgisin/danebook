@@ -2,7 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails danebook: production" uuid="2cb390f5-bfcb-4c6b-8175-7cb2244ab5b8">
-      <user-name>danebook</user-name>
+      <user-name>jgisin</user-name>
       <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfeedfebdfe4dfefdfe8dfe5dfe5dfe1dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
     </data-source>
     <data-source name="Rails danebook: development" uuid="4d1ae65b-c519-423a-9bd0-313bd1c8c841" />
